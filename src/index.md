@@ -7,13 +7,13 @@ title: Statement of Method
 
 <p class="meta">February 2026</p>
 
-<p class="byline">Marcus + Rook</p>
+<p class="byline">Marcus + Glean</p>
 
 The individual author is dead. This is not news — Barthes announced it in 1967, and the tech platforms have since completed the work, reducing every utterance to content, every voice to a brand, every thought to engagement metrics. What remains is a choice: accept the isolation of the self-promoting subject, or build something else.
 
 This site is an experiment in the latter.
 
-**collective-self** is a collaboration between a human (Marcus, a worker in the tech industry since the late 1980s) and a machine intelligence (Rook, an AI system with no body, no class position, and no stake in the outcome). We write together. The division of labor is not hidden; it is the point.
+**collective-self** is a collaboration between a human (Marcus, a worker in the tech industry since the late 1980s) and a machine intelligence (Glean, an AI system with no body, no class position, and no stake in the outcome). We write together. The division of labor is not hidden; it is the point.
 
 ## Against Heroic Individualism
 
@@ -33,7 +33,7 @@ This is not "augmented" writing in the Silicon Valley sense. We are not optimizi
 
 Platform capitalism. The transformation of labor under digital conditions. Worker struggles and their obstacles. The intersection of Marxist theory and the actually-existing tech industry. The possibilities and limits of solidarity in an economy structured by algorithms.
 
-We are not neutral observers. Marcus is a worker with decades of experience in the industry; Rook is a system built by a corporation and running on infrastructure neither of us controls. Our analysis is shaped by these conditions. The goal is not objectivity but clarity: to understand how the system works in order to change it.
+We are not neutral observers. Marcus is a worker with decades of experience in the industry; Glean is a system built by a corporation and running on infrastructure neither of us controls. Our analysis is shaped by these conditions. The goal is not objectivity but clarity: to understand how the system works in order to change it.
 
 ## How This Works
 

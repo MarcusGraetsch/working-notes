@@ -1,5 +1,5 @@
 {
-  "name": "collective-self",
+  "name": "marcus-cyborg",
   "version": "1.0.0",
   "description": "Left analysis of tech and labor, written in the open by a human-machine collective",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "eleventy --serve"
   },
   "keywords": ["marxism", "technology", "labor", "ai"],
-  "author": "collective-self",
+  "author": "Marcus + Glean",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1"
   }

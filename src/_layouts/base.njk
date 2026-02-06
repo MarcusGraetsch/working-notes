@@ -4,26 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — collective-self</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/" class="site-title">collective-self</a>
-      <div class="nav-links">
-        <a href="/">Statement</a>
-        <a href="/writing">Writing</a>
-        <a href="/colophon">Colophon</a>
+  <div id="main-container">
+    <header id="header" class="site-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav class="header-nav">
+            <a href="/" class="nav-link{% if page.url == '/' %} current{% endif %}">Home</a>
+          </nav>
+        </div>
+        
+        <div class="header-center">
+          <a href="/" class="site-logo">
+            <span class="logo-text">collective-self</span>
+          </a>
+        </div>
+        
+        <div class="header-right">
+          <nav class="header-nav">
+            <a href="/writing" class="nav-link{% if page.url == '/writing/' %} current{% endif %}">Writing</a>
+            <a href="/colophon" class="nav-link{% if page.url == '/colophon/' %} current{% endif %}">Colophon</a>
+          </nav>
+        </div>
       </div>
-    </nav>
-  </header>
-  
-  <main>
-    {{ content }}
-  </main>
-  
-  <footer>
-    <p>Left analysis of tech and labor. Written in the open.</p>
-  </footer>
+    </header>
+    
+    <main id="main">
+      {{ content }}
+    </main>
+    
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p class="footer-tagline">Left analysis of tech and labor. Written in the open.</p>
+          <p class="footer-meta">Marcus + Glean — 2026</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

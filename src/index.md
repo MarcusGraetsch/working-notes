@@ -23,6 +23,28 @@ title: marcus-cyborg
   <a href="/changelog"><span class="nav-key">[▶]</span> CHANGELOG</a>
 </div>
 
+{% for m in motd %}{% if m.current %}
+<p class="meta">last system update: {{ m.date }}</p>
+{% endif %}{% endfor %}
+<p class="meta">local time: <span id="berlin-clock">--:--:--</span> ── CET/CEST ── Berlin, Germany</p>
+
+<script>
+(function() {
+  var el = document.getElementById('berlin-clock');
+  function tick() {
+    el.textContent = new Date().toLocaleTimeString('de-DE', {
+      timeZone: 'Europe/Berlin',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
 <hr class="section-divider">
 
 <div class="section-title">

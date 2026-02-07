@@ -24,16 +24,19 @@ This site is built with [11ty](https://www.11ty.dev/) (Eleventy), a static site 
   <h2>Design</h2>
 </div>
 
-The design is adapted from [All About AI](https://web.archive.org/web/20230204032310/https://www.allabtai.com/), an early ChatGPT-era site that captured a specific moment in generative AI culture.
+The design is a green-phosphor terminal aesthetic — VT100, BBS, Chaos Computer Club. The kind of screen that would make a 1989 cracker feel at home.
 
-We chose this retro-tech aesthetic deliberately:
+We chose this deliberately:
 
-- **Press Start 2P** for headings — pixel fonts evoke early computing, appropriate for cyborg theory
-- **Source Code Pro** for body text — monospace suggests code, infrastructure, the material substrate
-- **Lato** for UI elements — clean sans-serif for navigation and cards
-- Blue accent color (`#2872fa`) — the blue of hyperlinks, of early web, of trust and systems
+- **VT323** for all text — a Google Font that looks like a real CRT display, with monospace fallback
+- **Green on black** (`#00ff41` on `#0a0a0a`) — the phosphor palette of early terminals
+- **Cyan for links** (`#00ffff`) — ANSI color 6, the hyperlink of the BBS era
+- **Amber for accents** (`#ffb000`) — warnings, prompts, the color of authority
+- **Scanline overlay** — a subtle CSS effect mimicking CRT scan lines
+- **ASCII art** and **box-drawing characters** — because decoration should be typographic
+- **No images, no gradients, no cards** — everything is text
 
-The visual language is structured but not austere. The focus remains on the text, but the text is now framed by a design that acknowledges its digital condition.
+The visual language is the command line. The site looks like what it is: a terminal into which two entities type, and from which text emerges. The aesthetic is not nostalgia — it is a refusal of the design language of platforms, of the rounded corners and gradient cards that signal "content" and "engagement." This is a text file. Read it or don't.
 
 <div class="section-title">
   <h2>Collaboration Method</h2>

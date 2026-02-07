@@ -3,10 +3,90 @@ layout: base.njk
 title: Statement of Method
 ---
 
-<div class="hero">
-  <h1 class="hero-title">Statement of Method</h1>
-  <p class="hero-subtitle">Generative AI and Automation for Everyone</p>
-  <p class="byline">Marcus + Glean</p>
+<div class="ascii-movie"><div class="frame frame-1">
+         .---.
+        /     \
+       | .   . |
+       |  \_/  |
+        \_____/
+       __|   |__
+      /  |   |  \
+     /   |   |   \
+         |   |
+        _|   |_
+       (__)  (__)
+<span class="label"> ── APE // 100000 BC ──────────────────────</span>
+<span class="label"> First tools. First sparks. First words.</span>
+<span class="bar-fill">██</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-2">
+         .---.
+        /     \
+       |  o o  |
+       |   ^   |
+       |  '-'  |
+        \_____/
+         |=|=|
+        /|   |\
+       / |   | \
+         |   |
+        _|   |_
+<span class="label"> ── HUMAN // 3000 BC ─────────────────────</span>
+<span class="label"> Writing. Cities. Civilization. Empires.</span>
+<span class="bar-fill">██████████</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-3">
+         .---.
+        / .-. \
+       | |o| |o| |
+       |  '-'  |
+       | .___. |
+        \_____/
+      __|=====|__
+     |__|_____|__|
+         |   |
+         |   |
+        _|   |_
+<span class="label"> ── HACKER // 1985 AD ────────────────────</span>
+<span class="label"> The digital revolution. Personal compute.</span>
+<span class="bar-fill">██████████████████</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-4">
+        .-----.
+       / ┌───┐ \
+      | [■]  o  |
+      |  ├───┤  |
+      | ╔═════╗ |
+       \╚═════╝/
+     ══╪═══════╪══
+       ║ ░░░░░ ║
+       ║ ░░░░░ ║
+       ╨       ╨
+       :       :
+<span class="label"> ── CYBORG // 2025 AD ────────────────────</span>
+<span class="label"> Human-machine fusion. The transformation.</span>
+<span class="bar-fill">██████████████████████████████</span><span class="bar-empty">░░░░░░░░░░</span></div><div class="frame frame-5">
+        _\/_
+       / ** \
+      / *  * \
+     / * ** * \   \o/
+    /___________\   |
+         ||        / \
+    ~~~~~||~~~~~~~/~~~\~~~~
+    ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+    ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+       ◉ preserve ◉
+<span class="label"> ── FUTURE // 20XX AD ────────────────────</span>
+<span class="label"> Fight for the planet. Technology for all.</span>
+<span class="bar-fill">████████████████████████████████████████</span></div></div>
+
+<div class="terminal-intro">
+<span class="sys">COLLECTIVE-SELF SYSTEM v0.1</span>
+<span class="sys">Connected to port 2600 ── BBS mode active</span>
+<span class="sys">────────────────────────────────────</span>
+<span class="prompt">login:</span> <span class="output">marcus+glean</span>
+<span class="prompt">auth:</span>  <span class="output">████████████</span>
+<span class="sys">────────────────────────────────────</span>
+<span class="sys">Welcome back. You have been away for 30 years.</span>
+<span class="sys">The pirates never really left -- they just got jobs.</span>
+<span class="sys">Like Guybrush said: "I want to be a mighty pirate."</span>
+<span class="sys">Like Zak said: nothing. He just did the work.</span>
+<span class="sys">────────────────────────────────────</span>
+<span class="prompt">$</span> <span class="output">cat statement_of_method.txt</span>
 </div>
 
 <div class="entry-content">
@@ -21,14 +101,10 @@ This site is an experiment in the latter.
 
 <div class="info-box-grid">
   <div class="info-box">
-    <a href="/writing">
-      <h2 class="info-box-title">Writing</h2>
-    </a>
+    <a href="/writing"><span class="nav-key">[A]</span> WRITING ── Essays and analysis</a>
   </div>
   <div class="info-box">
-    <a href="/colophon">
-      <h2 class="info-box-title">Colophon</h2>
-    </a>
+    <a href="/colophon"><span class="nav-key">[B]</span> COLOPHON ── How this is built</a>
   </div>
 </div>
 
@@ -72,6 +148,27 @@ The site is static HTML, hosted on infrastructure we do not control, built with 
 
 <hr class="section-divider">
 
-<blockquote>
-  <p>"The cyborg is resolutely committed to partiality, irony, intimacy, and perversity." — Donna Haraway</p>
-</blockquote>
+> "The cyborg is resolutely committed to partiality, irony, intimacy, and perversity." — Donna Haraway
+
+<hr class="section-divider">
+
+<div class="section-title">
+  <h2>Prompt to the Web Agent</h2>
+</div>
+
+<div class="terminal-box">
+<span class="terminal-box-title">DIRECTIVE // Marcus → Agent // Feb 2026</span>
+
+The following is a direct prompt from the human to the AI development agent that built and designed this site. We include it here because transparency is the method. The machine does not act without instruction; the instruction does not hide behind the output.
+
+<span class="prompt">marcus@collective-self:~$</span>
+
+I think robots are okay but we humans need — also due to climate change — to go back to nature. The robot age should be a thing where we as humans can live happily together while we are preserving our own habitat. I know there is a lot of transhumanist and other thinking out there, e.g. living on another planet, but I personally want that we as working class fight for a better planet — a planet which is not destroyed even more or polluted. We need to work on changes also regarding climate change.
+
+The last frames of the evolution animation should reflect that. Not a robot triumphant. A human standing next to a tree. Technology in service of the earth, not above it. The progress bar fills all the way not because we reached the machine singularity, but because we figured out how to live here.
+
+This is the position: technology is a tool. The planet is the ground. The working class is the subject. Everything else is negotiable.
+
+<span class="prompt">EOF</span>
+
+</div>

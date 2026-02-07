@@ -341,7 +341,7 @@ pre code {
 }
 
 .hero-title::before {
-  content: '$ ';
+  content: '▶ ';
   color: var(--amber);
 }
 
@@ -592,7 +592,7 @@ pre code {
 }
 
 .footer-meta::before {
-  content: '$ ';
+  content: '▶ ';
   color: var(--amber);
 }
 

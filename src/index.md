@@ -3,76 +3,11 @@ layout: base.njk
 title: Statement of Method
 ---
 
-<div class="ascii-movie"><div class="frame frame-1">
-         .---.
-        /     \
-       | .   . |
-       |  \_/  |
-        \_____/
-       __|   |__
-      /  |   |  \
-     /   |   |   \
-         |   |
-        _|   |_
-       (__)  (__)
-<span class="label"> ── APE // 100000 BC ──────────────────────</span>
-<span class="label"> First tools. First sparks. First words.</span>
-<span class="bar-fill">██</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-2">
-         .---.
-        /     \
-       |  o o  |
-       |   ^   |
-       |  '-'  |
-        \_____/
-         |=|=|
-        /|   |\
-       / |   | \
-         |   |
-        _|   |_
-<span class="label"> ── HUMAN // 3000 BC ─────────────────────</span>
-<span class="label"> Writing. Cities. Civilization. Empires.</span>
-<span class="bar-fill">██████████</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-3">
-         .---.
-        / .-. \
-       | |o| |o| |
-       |  '-'  |
-       | .___. |
-        \_____/
-      __|=====|__
-     |__|_____|__|
-         |   |
-         |   |
-        _|   |_
-<span class="label"> ── HACKER // 1985 AD ────────────────────</span>
-<span class="label"> The digital revolution. Personal compute.</span>
-<span class="bar-fill">██████████████████</span><span class="bar-empty">░░░░░░░░░░░░░░░░░░░░░░</span></div><div class="frame frame-4">
-        .-----.
-       / ┌───┐ \
-      | [■]  o  |
-      |  ├───┤  |
-      | ╔═════╗ |
-       \╚═════╝/
-     ══╪═══════╪══
-       ║ ░░░░░ ║
-       ║ ░░░░░ ║
-       ╨       ╨
-       :       :
-<span class="label"> ── CYBORG // 2025 AD ────────────────────</span>
-<span class="label"> Human-machine fusion. The transformation.</span>
-<span class="bar-fill">██████████████████████████████</span><span class="bar-empty">░░░░░░░░░░</span></div><div class="frame frame-5">
-        _\/_
-       / ** \
-      / *  * \
-     / * ** * \   \o/
-    /___________\   |
-         ||        / \
-    ~~~~~||~~~~~~~/~~~\~~~~
-    ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
-    ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
-       ◉ preserve ◉
-<span class="label"> ── FUTURE // 20XX AD ────────────────────</span>
-<span class="label"> Fight for the planet. Technology for all.</span>
-<span class="bar-fill">████████████████████████████████████████</span></div></div>
+{% for movie in asciiMovies %}{% if movie.current %}{% include movie.file %}{% endif %}{% endfor %}
+
+<div class="info-box">
+  <a href="/ascii-art"><span class="nav-key">[▶]</span> ASCII ART ARCHIVE</a>
+</div>
 
 <div class="terminal-intro">
 <span class="sys">COLLECTIVE-SELF SYSTEM v0.1</span>
@@ -86,7 +21,7 @@ title: Statement of Method
 <span class="sys">Like Guybrush said: "I want to be a mighty pirate."</span>
 <span class="sys">Like Zak said: nothing. He just did the work.</span>
 <span class="sys">────────────────────────────────────</span>
-<span class="prompt">$</span> <span class="output">cat statement_of_method.txt</span>
+<span class="prompt">▶</span> <span class="output">cat statement_of_method.txt</span>
 </div>
 
 <div class="entry-content">
@@ -161,7 +96,7 @@ The site is static HTML, hosted on infrastructure we do not control, built with 
 
 The following is a direct prompt from the human to the AI development agent that built and designed this site. We include it here because transparency is the method. The machine does not act without instruction; the instruction does not hide behind the output.
 
-<span class="prompt">marcus@collective-self:~$</span>
+<span class="prompt">marcus@collective-self:~▶</span>
 
 I think robots are okay but we humans need — also due to climate change — to go back to nature. The robot age should be a thing where we as humans can live happily together while we are preserving our own habitat. I know there is a lot of transhumanist and other thinking out there, e.g. living on another planet, but I personally want that we as working class fight for a better planet — a planet which is not destroyed even more or polluted. We need to work on changes also regarding climate change.
 

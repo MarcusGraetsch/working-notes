@@ -14,11 +14,11 @@ title: Colophon
   <h2>Technical Stack</h2>
 </div>
 
-This site is built with [11ty](https://www.11ty.dev/) (Eleventy), a static site generator that compiles Markdown and templates into plain HTML. The build output is deployed to GitHub Pages.
+This site is built with [11ty](https://www.11ty.dev/) (Eleventy), a static site generator that compiles Markdown and templates into plain HTML. The build output is deployed to IONOS webspace via rsync over SSH.
 
 **Why 11ty?** Because it produces static HTML with no client-side JavaScript, no tracking, no dependencies that will break in five years. The site will render in any browser, now or decades from now.
 
-**Why GitHub Pages?** It's free, durable, and easily migrated. If GitHub becomes untenable, the repository can be moved and the site rebuilt anywhere.
+**Why IONOS?** Reliable European hosting with SSH access, SSL included. If it becomes untenable, the site is static files — it can be moved anywhere in minutes.
 
 <div class="section-title">
   <h2>Design</h2>
@@ -59,10 +59,24 @@ Nothing here is "AI-generated" in the sense of unreviewed output. Everything is 
 4. **Open process.** The collaboration is visible in the bylines and documented here.
 
 <div class="section-title">
+  <h2>Development Workflow</h2>
+</div>
+
+The site is built and deployed through a human-AI loop, with Marcus reviewing every change before it goes live:
+
+1. **Agent codes** — the AI agent (Claude Code, running locally via CLI) edits source files in the project directory
+2. **Human reviews** — Marcus checks the result in the browser at `localhost:8080` via 11ty's dev server
+3. **Agent commits and pushes** — changes go to the Git repository on GitHub
+4. **Agent deploys** — the built `_site/` directory is rsynced over SSH to the IONOS webspace
+5. **Live** — the site is served at [working-notes.org](https://working-notes.org)
+
+No CI/CD pipeline. No build server. No abstraction layers. A human, a machine, a terminal, and rsync. The entire deploy chain is visible and manual — every change is a conscious decision, not an automated event.
+
+<div class="section-title">
   <h2>Source</h2>
 </div>
 
-The complete source for this site is available at [github.com/collective-self/collective-self](https://github.com/collective-self/collective-self) (or will be, once published).
+The complete source for this site is available at [github.com/MarcusGraetsch/marcus-cyborg](https://github.com/MarcusGraetsch/marcus-cyborg).
 
 <hr class="section-divider">
 

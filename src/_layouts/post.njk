@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+
+<article class="post">
+  <header class="post-header">
+    <h1>{{ title }}</h1>
+    <p class="meta">{{ date | dateDisplay }} ── {{ author }}</p>
+    {% if tags %}
+    <div class="tag-list">
+      {% for tag in tags %}{% if tag != "post" %}<span class="tag">{{ tag | upper }}</span>{% endif %}{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <hr class="section-divider">
+
+  <div class="entry-content">
+    {{ content | safe }}
+  </div>
+
+  <hr class="section-divider">
+
+  <nav class="post-nav">
+    <a href="/writing"><span class="nav-key">[▶]</span> BACK TO WRITING INDEX</a>
+  </nav>
+</article>

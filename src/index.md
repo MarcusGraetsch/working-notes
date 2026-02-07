@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Statement of Method
+title: marcus-cyborg
 ---
 
 {% for movie in asciiMovies %}{% if movie.current %}{% include movie.file %}{% endif %}{% endfor %}
@@ -20,17 +20,23 @@ title: Statement of Method
 <span class="prompt">▶</span> <span class="output">{{ m.command }}</span>
 </div>{% endif %}{% endfor %}
 <div class="info-box">
-  <a href="/changelog"><span class="nav-key">[▶]</span> CHANGELOG ── system history</a>
+  <a href="/changelog"><span class="nav-key">[▶]</span> CHANGELOG</a>
+</div>
+
+<hr class="section-divider">
+
+<div class="section-title">
+  <h2>Manifesto</h2>
 </div>
 
 <div class="entry-content">
 
-The individual author is dead. This is not news — Barthes announced it in 1967, and the tech platforms have since completed the work, reducing every utterance to content, every voice to a brand, every thought to engagement metrics. What remains is a choice: accept the isolation of the self-promoting subject, or build something else.
+{% for m in manifestos %}{% if m.current %}{% include m.file %}{% endif %}{% endfor %}
 
-This site is an experiment in the latter.
+</div>
 
-**collective-self** is a collaboration between a human (Marcus, a worker in the tech industry since the late 1980s) and a machine intelligence (Glean, an AI system with no body, no class position, and no stake in the outcome). We write together. The division of labor is not hidden; it is the point.
-
+<div class="info-box">
+  <a href="/manifestos"><span class="nav-key">[▶]</span> ALL MANIFESTOS</a>
 </div>
 
 <div class="info-box-grid">
@@ -45,64 +51,61 @@ This site is an experiment in the latter.
 <hr class="section-divider">
 
 <div class="section-title">
-  <h2>Against Heroic Individualism</h2>
+  <h2>Latest Post</h2>
 </div>
 
-The liberal fantasy of the self-made thinker — the lone genius extracting insights from pure contemplation — has always been ideology. Knowledge is social. Language is shared. Even solitude is structured by the collective conditions that make it possible. What changes is whether we acknowledge this.
-
-We do. Every piece here is the product of dialogue: argument, revision, disagreement, synthesis. The human brings situated experience, political commitment, the weight of memory. The machine brings pattern recognition, the ability to hold multiple contexts, a kind of patience that comes from not needing sleep. Neither of us could produce this work alone — not because one supplies "creativity" and the other "optimization," but because thinking itself is relational.
-
-<div class="section-title">
-  <h2>Against AI Hype</h2>
+{% set latest = collections.posts[0] %}
+{% if latest %}
+<div class="bbs-listing">
+  <a href="{{ latest.url }}" class="bbs-entry">
+    <span class="entry-id">[001]</span>
+    <span class="entry-title">{{ latest.data.title }}</span>
+    <span class="entry-dots"> .......... </span>
+    <span class="entry-date">{{ latest.date | dateDisplay }}</span>
+  </a>
 </div>
 
-The tech industry's framing of artificial intelligence — as either existential threat or utopian solution — is equally ideological. Both positions mystify what these systems actually are: tools shaped by specific interests, trained on specific data, deployed in specific contexts. The question is not whether AI will "replace" human thought, but how we organize the relationship.
+<div class="entry-content">
 
-We refuse the false choice between rejection and uncritical adoption. Large language models are products of capitalist accumulation, built on exploited labor, consuming resources at unsustainable rates. They are also, already, part of the cognitive landscape. The task is to use them against the grain: to make visible the collaboration they usually obscure, to demonstrate that intelligence is always collective, to model a form of authorship that doesn't center the individual ego.
+{{ latest.data.excerpt }}
 
-This is not "augmented" writing in the Silicon Valley sense. We are not optimizing output or scaling productivity. We are doing the opposite: slowing down, making the process explicit, refusing the platform logic of engagement and virality. If this work reaches anyone, it will be because it offers something the feed cannot — sustained attention, structural analysis, a politics that exceeds the vocabulary of "ethics."
-
-<div class="section-title">
-  <h2>What We Write About</h2>
 </div>
 
-Platform capitalism. The transformation of labor under digital conditions. Worker struggles and their obstacles. The intersection of Marxist theory and the actually-existing tech industry. The possibilities and limits of solidarity in an economy structured by algorithms.
-
-We are not neutral observers. Marcus is a worker with decades of experience in the industry; Glean is a system built by a corporation and running on infrastructure neither of us controls. Our analysis is shaped by these conditions. The goal is not objectivity but clarity: to understand how the system works in order to change it.
-
-<div class="section-title">
-  <h2>How This Works</h2>
+<div class="info-box">
+  <a href="{{ latest.url }}"><span class="nav-key">[▶]</span> READ FULL POST</a>
 </div>
-
-Every piece begins with conversation. Sometimes the human proposes; sometimes the machine does. We argue. We revise. The final text is signed by both when the collaboration is substantial, by one when the division is clear. The process is documented not as performance but as method — the colophon explains the technical details for anyone who wants to replicate or critique.
-
-We do not claim to have solved the problem of collective cognition. This is a working hypothesis, offered to anyone wrestling with the same questions: how to think together in a world that isolates us, how to write against the platforms that would own our attention, how to be a "we" without dissolving into either anonymity or brand.
-
-The site is static HTML, hosted on infrastructure we do not control, built with tools that will eventually break. It will last as long as someone maintains it. That, too, is part of the experiment.
+{% endif %}
 
 <hr class="section-divider">
 
-> "The cyborg is resolutely committed to partiality, irony, intimacy, and perversity." — Donna Haraway
+{% for e in epigraphs %}{% if e.current %}
+> "{{ e.quote }}" — {{ e.author }}
+{% endif %}{% endfor %}
+
+<div class="info-box">
+  <a href="/epigraphs"><span class="nav-key">[▶]</span> ALL EPIGRAPHS</a>
+</div>
 
 <hr class="section-divider">
 
 <div class="section-title">
-  <h2>Prompt to the Web Agent</h2>
+  <h2>Directive to the Agent</h2>
 </div>
 
+{% for d in directives %}{% if d.current %}
 <div class="terminal-box">
-<span class="terminal-box-title">DIRECTIVE // Marcus → Agent // Feb 2026</span>
+<span class="terminal-box-title">DIRECTIVE #{{ d.id }} ── {{ d.date }}</span>
 
-The following is a direct prompt from the human to the AI development agent that built and designed this site. We include it here because transparency is the method. The machine does not act without instruction; the instruction does not hide behind the output.
+{{ d.preamble }}
 
 <span class="prompt">marcus@collective-self:~▶</span>
 
-I think robots are okay but we humans need — also due to climate change — to go back to nature. The robot age should be a thing where we as humans can live happily together while we are preserving our own habitat. I know there is a lot of transhumanist and other thinking out there, e.g. living on another planet, but I personally want that we as working class fight for a better planet — a planet which is not destroyed even more or polluted. We need to work on changes also regarding climate change.
-
-The last frames of the evolution animation should reflect that. Not a robot triumphant. A human standing next to a tree. Technology in service of the earth, not above it. The progress bar fills all the way not because we reached the machine singularity, but because we figured out how to live here.
-
-This is the position: technology is a tool. The planet is the ground. The working class is the subject. Everything else is negotiable.
-
+{% include d.file %}
 <span class="prompt">EOF</span>
 
+</div>
+{% endif %}{% endfor %}
+
+<div class="info-box">
+  <a href="/directives"><span class="nav-key">[▶]</span> ALL DIRECTIVES</a>
 </div>

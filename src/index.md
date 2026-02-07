@@ -9,19 +9,18 @@ title: Statement of Method
   <a href="/ascii-art"><span class="nav-key">[▶]</span> ASCII ART ARCHIVE</a>
 </div>
 
-<div class="terminal-intro">
-<span class="sys">COLLECTIVE-SELF SYSTEM v0.1</span>
-<span class="sys">Connected to port 2600 ── BBS mode active</span>
+{% for m in motd %}{% if m.current %}<div class="terminal-intro">
+<span class="sys">COLLECTIVE-SELF SYSTEM v{{ m.version }}</span>
+<span class="sys">{{ m.connection }}</span>
 <span class="sys">────────────────────────────────────</span>
 <span class="prompt">login:</span> <span class="output">marcus+glean</span>
 <span class="prompt">auth:</span>  <span class="output">████████████</span>
 <span class="sys">────────────────────────────────────</span>
-<span class="sys">Welcome back. You have been away for 30 years.</span>
-<span class="sys">The pirates never really left -- they just got jobs.</span>
-<span class="sys">Like Guybrush said: "I want to be a mighty pirate."</span>
-<span class="sys">Like Zak said: nothing. He just did the work.</span>
-<span class="sys">────────────────────────────────────</span>
-<span class="prompt">▶</span> <span class="output">cat statement_of_method.txt</span>
+{% include m.file %}<span class="sys">────────────────────────────────────</span>
+<span class="prompt">▶</span> <span class="output">{{ m.command }}</span>
+</div>{% endif %}{% endfor %}
+<div class="info-box">
+  <a href="/changelog"><span class="nav-key">[▶]</span> CHANGELOG ── system history</a>
 </div>
 
 <div class="entry-content">

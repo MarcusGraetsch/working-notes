@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy static files
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/img");
 
   // RFC 3339 date for Atom feed
   eleventyConfig.addFilter("dateToRfc3339", function(date) {

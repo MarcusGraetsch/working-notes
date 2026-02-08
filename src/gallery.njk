@@ -1,0 +1,36 @@
+---
+layout: base.njk
+title: Gallery
+---
+
+<div class="hero">
+  <h1 class="hero-title">Gallery</h1>
+  <p class="hero-description">Photos, screenshots, visual artifacts.</p>
+</div>
+
+<hr class="section-divider">
+
+{% if photos.length %}
+<div class="photo-grid">
+  {% for photo in photos %}
+  <div class="photo-card">
+    <img src="{{ photo.src }}" alt="{{ photo.alt }}" loading="lazy">
+    <div class="photo-caption">
+      <span class="photo-title">{{ photo.title }}</span>
+      <span class="photo-date">{{ photo.date }}</span>
+      <div class="photo-tags">
+        {% for tag in photo.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+      {% if photo.description %}
+      <p class="photo-description">{{ photo.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="terminal-box">
+  <span class="terminal-box-title">STATUS</span>
+  <p>No photos yet. Check back soon.</p>
+</div>
+{% endif %}

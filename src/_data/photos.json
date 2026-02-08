@@ -1,0 +1,12 @@
+[
+  {
+    "id": "001",
+    "title": "Sample Photo",
+    "date": "2026-02",
+    "src": "/img/photos/sample.jpg",
+    "external": false,
+    "alt": "Description of the photo",
+    "tags": ["BERLIN", "TECH"],
+    "description": "A short caption or comment."
+  }
+]

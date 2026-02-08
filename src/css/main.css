@@ -601,6 +601,65 @@ pre code {
   margin: 1rem 0;
 }
 
+/* Photo Gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.photo-card {
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--green-dim);
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.3);
+}
+
+.photo-caption {
+  margin-top: 0.75rem;
+}
+
+.photo-title {
+  display: block;
+  color: var(--green-bright);
+  font-size: 20px;
+}
+
+.photo-date {
+  display: block;
+  color: var(--text-dim);
+  font-size: 18px;
+}
+
+.photo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.photo-description {
+  color: var(--text-dim);
+  font-size: 18px;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* Music / Spotify Embeds */
+.spotify-embed {
+  margin: 0.75rem 0 0;
+}
+
+.playlist-entry {
+  margin-bottom: 1.5rem;
+}
+
 /* Responsive */
 @media (max-width: 767px) {
   body {
@@ -649,6 +708,10 @@ pre code {
 
   .section-divider::before {
     content: '══════════════════════════════';
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
   }
 }
 

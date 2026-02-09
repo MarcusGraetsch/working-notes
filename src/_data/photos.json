@@ -58,5 +58,16 @@
     "tags": [
       "TESTI WE TEST NOW IF PHOTOBOT CAN COMMUNICATE WITH ROOK."
     ]
+  },
+  {
+    "id": "006",
+    "title": "And another Test image",
+    "date": "2026-02-09 16:23",
+    "src": "/img/photos/20260209-162333.jpg",
+    "external": false,
+    "alt": "And another Test image",
+    "tags": [
+      "TEST I WE TEST AGAIN IF PHOTOBOT CAN COMMUNICATE WITH ROOK."
+    ]
   }
 ]

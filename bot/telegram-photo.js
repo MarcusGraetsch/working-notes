@@ -272,7 +272,7 @@ async function handlePhoto(msg) {
         `File: ${newEntry.src}`,
         description ? `Description: ${description}` : '',
         '',
-        'Rook: please review this photo and improve the metadata — tags, alt text, and description. Edit src/_data/photos.json on the VPS, then commit and rebuild.',
+        '@MarcusNewClawbot please review this photo and improve the metadata — tags, alt text, and description. Edit src/_data/photos.json on the VPS, then commit and rebuild.',
       ].filter(Boolean).join('\n');
       await sendMessage(ROOK_CHAT_ID, notify).catch((err) => {
         console.error('Failed to notify Rook:', err.message);

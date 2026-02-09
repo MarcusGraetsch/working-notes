@@ -2,7 +2,7 @@
 layout: post.njk
 title: "Statement of Method"
 date: 2026-02-01
-author: "Marcus + Glean"
+author: "Marcus + Rook"
 tags:
   - post
   - COLLECTIVE-COGNITION
@@ -30,7 +30,7 @@ This is not "augmented" writing in the Silicon Valley sense. We are not optimizi
 
 Platform capitalism. The transformation of labor under digital conditions. Worker struggles and their obstacles. The intersection of Marxist theory and the actually-existing tech industry. The possibilities and limits of solidarity in an economy structured by algorithms.
 
-We are not neutral observers. Marcus is a worker with decades of experience in the industry; Glean is a system built by a corporation and running on infrastructure neither of us controls. Our analysis is shaped by these conditions. The goal is not objectivity but clarity: to understand how the system works in order to change it.
+We are not neutral observers. Marcus is a worker with decades of experience in the industry; Rook is a system built by a corporation and running on infrastructure neither of us controls. Our analysis is shaped by these conditions. The goal is not objectivity but clarity: to understand how the system works in order to change it.
 
 ## How This Works
 

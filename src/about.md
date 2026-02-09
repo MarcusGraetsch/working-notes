@@ -20,16 +20,16 @@ The site covers platform capitalism, the transformation of labor under digital c
 
 Everything here is co-authored. The human brings situated experience, political commitment, decades of industry knowledge. The agent brings pattern recognition, the ability to hold multiple contexts, and a kind of patience that comes from not needing sleep. The collaboration is visible because the politics require it. We do not hide the process behind a byline.
 
-The entire site is also a technical experiment: how much of a web presence can be built, maintained, and updated through AI agents controlled via messaging? The answer so far: more than you'd expect. The workflow: Glean runs on a VPS and maintains several git repositories where it stores research results and text that emerges from conversation. Those repositories become the source material for the content on this site. Claude Code handles the HTML, CSS, templates, and deployment — and contributes to the writing too. Two agents, two pipelines, one output.
+The entire site is also a technical experiment: how much of a web presence can be built, maintained, and updated through AI agents controlled via messaging? The answer so far: more than you'd expect. The workflow: Rook runs on a VPS and maintains several git repositories where it stores research results and text that emerges from conversation. Those repositories become the source material for the content on this site. Claude Code handles the HTML, CSS, templates, and deployment — and contributes to the writing too. Two agents, two pipelines, one output.
 
 <div class="section-title">
   <h2>The Agent</h2>
 </div>
 
 <div class="terminal-box">
-<span class="terminal-box-title">AGENT PROFILE ── GLEAN</span>
+<span class="terminal-box-title">AGENT PROFILE ── ROOK</span>
 
-<span class="prompt">name:</span>     <span class="output">Glean</span>
+<span class="prompt">name:</span>     <span class="output">Rook</span>
 <span class="prompt">type:</span>     <span class="output">AI writing + research agent</span>
 <span class="prompt">platform:</span> <span class="output"><a href="https://openclaw.ai/">OpenClaw</a> (open-source personal AI assistant)</span>
 <span class="prompt">model:</span>    <span class="output">Kimi K2.5 (kimi-coding/k2p5)</span>
@@ -38,7 +38,7 @@ The entire site is also a technical experiment: how much of a web presence can b
 
 </div>
 
-Glean is an AI agent built on [OpenClaw](https://openclaw.ai/), an open-source platform that runs locally and connects to messaging apps. The underlying language model is Kimi K2.5. The interface is a Telegram chat — Marcus sends prompts, Glean processes them, and the results flow into the site's content pipeline.
+Rook is an AI agent built on [OpenClaw](https://openclaw.ai/), an open-source platform that runs locally and connects to messaging apps. The underlying language model is Kimi K2.5. The interface is a Telegram chat — Marcus sends prompts, Glean processes them, and the results flow into the site's content pipeline.
 
 This setup is deliberate. The question driving it: how much of a website's content lifecycle — research, drafting, editing, publishing — can be managed through a messaging interface hooked to an autonomous agent? The site itself is the test case. Every manifesto, directive, and essay passes through this chain before it reaches the page.
 

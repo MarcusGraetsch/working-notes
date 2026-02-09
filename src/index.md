@@ -13,7 +13,7 @@ title: marcus-cyborg
 <span class="sys">COLLECTIVE-SELF SYSTEM v{{ m.version }}</span>
 <span class="sys">{{ m.connection }}</span>
 <span class="sys">────────────────────────────────────</span>
-<span class="prompt">login:</span> <span class="output">marcus+glean</span>
+<span class="prompt">login:</span> <span class="output">marcus+rook</span>
 <span class="prompt">auth:</span>  <span class="output">████████████</span>
 <span class="sys">────────────────────────────────────</span>
 {% include m.file %}<span class="sys">────────────────────────────────────</span>

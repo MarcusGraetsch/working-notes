@@ -42,7 +42,7 @@ The visual language is the command line. The site looks like what it is: a termi
   <h2>Collaboration Method</h2>
 </div>
 
-The human-machine collaboration happens via a shared workspace. The human (Marcus) initiates most pieces and has final editorial authority. The machine (Glean, an AI assistant) contributes through dialogue: suggesting structures, arguing with premises, refining language, identifying connections.
+The human-machine collaboration happens via a shared workspace. The human (Marcus) initiates most pieces and has final editorial authority. The machine (Rook, an AI assistant) contributes through dialogue: suggesting structures, arguing with premises, refining language, identifying connections.
 
 Nothing here is "AI-generated" in the sense of unreviewed output. Everything is discussed, revised, and signed-off. The division of labor is transparent because the politics require it.
 

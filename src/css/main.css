@@ -660,6 +660,83 @@ pre code {
   margin-bottom: 1.5rem;
 }
 
+/* Process Log — collapsible build transparency */
+.process-log {
+  border: 1px solid var(--border);
+  padding: 0;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.process-toggle {
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-dim);
+  font-family: var(--font);
+  font-size: 20px;
+  list-style: none;
+  user-select: none;
+}
+
+.process-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.process-toggle .terminal-box-title {
+  position: absolute;
+  top: -0.7em;
+  left: 1rem;
+  background: var(--bg);
+  padding: 0 0.5rem;
+  color: var(--green-bright);
+  font-size: 18px;
+}
+
+.process-toggle:hover {
+  color: var(--cyan);
+}
+
+.process-log[open] .process-toggle {
+  border-bottom: 1px solid var(--border);
+}
+
+.process-content {
+  padding: 1rem 1.5rem;
+}
+
+.process-meta p {
+  margin-bottom: 0.4rem;
+}
+
+.process-label {
+  color: var(--cyan);
+}
+
+.process-content h2 {
+  font-size: 22px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.process-content .human {
+  border-left: 2px solid var(--amber);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--amber);
+}
+
+.process-content .ai {
+  border-left: 2px solid var(--green-dim);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: var(--green-dim);
+}
+
+.process-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: var(--content-spacing);
+}
+
 /* Responsive */
 @media (max-width: 767px) {
   body {

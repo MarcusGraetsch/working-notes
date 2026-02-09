@@ -176,6 +176,67 @@ Use UPPERCASE for all tags. Existing tags in use:
 
 Reuse existing tags when possible. Use hyphens for multi-word tags (not spaces, not underscores).
 
+## Process Logs (Optional)
+
+Process logs document how an article was made — the prompts, conversation turns, model used, and setup. They appear as a collapsible "PROCESS" section on the post page.
+
+### Creating a Process Log
+
+For a post at `src/writing/my-article.md`, create a companion file at `src/writing/my-article.process.md`. The naming convention is `article-slug.process.md` — same name as the post, with `.process.md` instead of `.md`.
+
+Process logs are **optional**. Not every article needs one.
+
+### Frontmatter
+
+Add a `process` key to the post's frontmatter. All fields are optional:
+
+```yaml
+process:
+  model: "Kimi K2.5 (via Rook)"
+  method: "Multi-turn conversation"
+  summary: "3 rounds of revision from an initial outline"
+```
+
+If no `process` key exists in frontmatter, no process section appears on the page.
+
+### Process File Format
+
+Use `<div class="human">` for human prompts and `<div class="ai">` for AI responses. Wrap each turn in a markdown heading:
+
+```markdown
+## Initial Prompt
+
+<div class="human">
+
+Marcus: Write about the thing.
+
+</div>
+
+## First Draft
+
+<div class="ai">
+
+Rook: Here is the draft content...
+
+</div>
+
+## Revision Notes
+
+<div class="human">
+
+Marcus: Make it more direct.
+
+</div>
+
+## Setup Notes
+
+- **Model**: Kimi K2.5 via OpenClaw/Rook
+- **Method**: Multi-turn conversation
+- **No RAG used**
+```
+
+Important: leave a blank line after the opening `<div>` tag and before the closing `</div>` tag — markdown needs the blank lines to render correctly inside HTML blocks.
+
 ## Commit Messages
 
 - Use imperative mood ("Add feature" not "Added feature")

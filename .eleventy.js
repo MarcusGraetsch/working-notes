@@ -1,7 +1,27 @@
+const fs = require("fs");
+const path = require("path");
+const markdownIt = require("markdown-it");
+
 module.exports = function(eleventyConfig) {
+  // Ignore process log companion files (read by filter, not built as pages)
+  eleventyConfig.ignores.add("src/writing/*.process.md");
+
   // Copy static files
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
+
+  // Render a companion .process.md file if it exists
+  const md = markdownIt({ html: true });
+  eleventyConfig.addFilter("renderProcessFile", function(inputPath) {
+    if (!inputPath) return "";
+    const processPath = inputPath.replace(/\.md$/, ".process.md");
+    const fullPath = path.resolve(processPath);
+    if (fs.existsSync(fullPath)) {
+      const content = fs.readFileSync(fullPath, "utf-8");
+      return md.render(content);
+    }
+    return "";
+  });
 
   // RFC 3339 date for Atom feed
   eleventyConfig.addFilter("dateToRfc3339", function(date) {

@@ -10,6 +10,10 @@ tags:
   - CRITICAL-THEORY
   - LABOR
 excerpt: "The individual author is dead. This is not news. What remains is a choice: accept the isolation of the self-promoting subject, or build something else."
+process:
+  model: "Kimi K2.5 (via Rook)"
+  method: "Multi-turn conversation"
+  summary: "3 rounds of revision from an initial outline"
 ---
 
 ## Against Heroic Individualism

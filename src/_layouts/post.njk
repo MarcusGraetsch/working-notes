@@ -13,6 +13,27 @@ layout: base.njk
     {% endif %}
   </header>
 
+  {% if process %}
+  {% set processLog = page.inputPath | renderProcessFile %}
+  <details class="process-log">
+    <summary class="process-toggle">
+      <span class="terminal-box-title">PROCESS</span>
+      ▶ How this was made
+    </summary>
+    <div class="process-content">
+      <div class="process-meta">
+        {% if process.model %}<p><span class="process-label">Model:</span> {{ process.model }}</p>{% endif %}
+        {% if process.method %}<p><span class="process-label">Method:</span> {{ process.method }}</p>{% endif %}
+        {% if process.summary %}<p><span class="process-label">Summary:</span> {{ process.summary }}</p>{% endif %}
+      </div>
+      {% if processLog %}
+      <hr class="section-divider">
+      {{ processLog | safe }}
+      {% endif %}
+    </div>
+  </details>
+  {% endif %}
+
   <hr class="section-divider">
 
   <div class="entry-content">

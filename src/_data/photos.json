@@ -47,5 +47,16 @@
       "TEST"
     ],
     "description": "photofunction/bot needs to update git repo too"
+  },
+  {
+    "id": "005",
+    "title": "Another Test image",
+    "date": "2026-02-09 15:56",
+    "src": "/img/photos/20260209-155618.jpg",
+    "external": false,
+    "alt": "Another Test image",
+    "tags": [
+      "TESTI WE TEST NOW IF PHOTOBOT CAN COMMUNICATE WITH ROOK."
+    ]
   }
 ]

@@ -6,7 +6,22 @@
     "src": "/img/photos/sample.jpg",
     "external": false,
     "alt": "Description of the photo",
-    "tags": ["BERLIN", "TECH"],
+    "tags": [
+      "BERLIN",
+      "TECH"
+    ],
     "description": "A short caption or comment."
+  },
+  {
+    "id": "002",
+    "title": "One more Test image",
+    "date": "2026-02-09 14:49",
+    "src": "/img/photos/20260209-144948.jpg",
+    "external": false,
+    "alt": "One more Test image",
+    "tags": [
+      "TEST"
+    ],
+    "description": "photofunction/bot needs to update git repo too"
   }
 ]

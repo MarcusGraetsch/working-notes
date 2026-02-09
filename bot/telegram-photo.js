@@ -95,6 +95,42 @@ function sendMessage(chatId, text) {
   return apiCall('sendMessage', { chat_id: chatId, text });
 }
 
+// --- Git helpers ---
+
+function gitExec(cmd) {
+  return execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
+}
+
+function gitSync(commitMessage) {
+  // Stage all photo and data changes
+  execSync('git add src/img/photos/ src/_data/photos.json', { cwd: ROOT, stdio: 'pipe' });
+
+  // Commit if there's anything staged
+  try {
+    gitExec(`git commit -m "${commitMessage}"`);
+  } catch (e) {
+    // Nothing to commit — that's fine
+    console.log('Nothing new to commit.');
+  }
+
+  // Pull remote changes (rebasing local commits on top)
+  try {
+    gitExec('git pull --rebase');
+  } catch (e) {
+    console.error('git pull --rebase failed, attempting to continue rebase...');
+    try { gitExec('git rebase --abort'); } catch (_) {}
+    // Force-accept remote state and re-apply our commit
+    gitExec('git stash');
+    gitExec('git pull');
+    gitExec('git stash pop');
+    execSync('git add src/img/photos/ src/_data/photos.json', { cwd: ROOT, stdio: 'pipe' });
+    try { gitExec(`git commit -m "${commitMessage}"`); } catch (_) {}
+  }
+
+  gitExec('git push');
+  console.log('Git sync complete.');
+}
+
 // --- Caption parsing ---
 
 function parseCaption(caption) {
@@ -209,10 +245,7 @@ async function handlePhoto(msg) {
 
     // Commit and push to git
     console.log('Committing to git...');
-    execSync(`git add src/img/photos/${filename} src/_data/photos.json`, { cwd: ROOT, stdio: 'inherit' });
-    execSync(`git commit -m "Add photo: ${title.replace(/"/g, '\\"')}"`, { cwd: ROOT, stdio: 'inherit' });
-    execSync('git push', { cwd: ROOT, stdio: 'inherit' });
-    console.log('Git push complete.');
+    gitSync(`Add photo: ${title.replace(/"/g, '\\"')}`);
 
     // Build site
     console.log('Building site...');
@@ -275,4 +308,12 @@ async function poll() {
 console.log('Telegram photo bot starting...');
 console.log(`Photos dir: ${PHOTOS_DIR}`);
 console.log(`Photos JSON: ${PHOTOS_JSON}`);
+
+// Sync any uncommitted photos left from a previous crash
+try {
+  gitSync('Add uncommitted photos from previous session');
+} catch (e) {
+  console.error('Startup git sync failed (non-fatal):', e.message);
+}
+
 poll();

@@ -38,6 +38,7 @@ if (!IONOS_PASS || !IONOS_USER || !IONOS_HOST) {
   console.error('IONOS_PASSWORD, IONOS_USER, or IONOS_HOST not found in .env');
   process.exit(1);
 }
+const ROOK_CHAT_ID = env.ROOK_CHAT_ID || '';
 
 const API = `https://api.telegram.org/bot${TOKEN}`;
 let offset = 0;
@@ -261,6 +262,22 @@ async function handlePhoto(msg) {
     console.log('Deploy complete.');
 
     await sendMessage(chatId, `Done! "${title}" is live.\nID: ${newEntry.id} | Tags: ${tags.join(', ') || 'none'}`);
+
+    // Notify Rook via group chat
+    if (ROOK_CHAT_ID) {
+      const notify = [
+        `📷 New photo uploaded: "${title}"`,
+        `ID: ${newEntry.id}`,
+        `Tags: ${tags.join(', ') || 'none'}`,
+        `File: ${newEntry.src}`,
+        description ? `Description: ${description}` : '',
+        '',
+        'Rook: please review this photo and improve the metadata — tags, alt text, and description. Edit src/_data/photos.json on the VPS, then commit and rebuild.',
+      ].filter(Boolean).join('\n');
+      await sendMessage(ROOK_CHAT_ID, notify).catch((err) => {
+        console.error('Failed to notify Rook:', err.message);
+      });
+    }
   } catch (err) {
     console.error('Error processing photo:', err);
     await sendMessage(chatId, `Error: ${err.message}`).catch(() => {});

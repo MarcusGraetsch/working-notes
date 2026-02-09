@@ -14,6 +14,30 @@
   },
   {
     "id": "002",
+    "title": "Test image",
+    "date": "2026-02",
+    "src": "/img/photos/20260209-120157.jpg",
+    "external": false,
+    "alt": "Test image",
+    "tags": [
+      "TEST"
+    ],
+    "description": "First bot upload"
+  },
+  {
+    "id": "003",
+    "title": "Another Test image generated with dall-e",
+    "date": "2026-02-09 12:27",
+    "src": "/img/photos/20260209-122727.jpg",
+    "external": false,
+    "alt": "Another Test image generated with dall-e",
+    "tags": [
+      "TEST"
+    ],
+    "description": "this comes via telegram"
+  },
+  {
+    "id": "004",
     "title": "One more Test image",
     "date": "2026-02-09 14:49",
     "src": "/img/photos/20260209-144948.jpg",

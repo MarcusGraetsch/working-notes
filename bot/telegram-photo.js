@@ -207,6 +207,13 @@ async function handlePhoto(msg) {
     fs.writeFileSync(PHOTOS_JSON, JSON.stringify(photosData, null, 2) + '\n');
     console.log(`Added entry: ${JSON.stringify(newEntry)}`);
 
+    // Commit and push to git
+    console.log('Committing to git...');
+    execSync(`git add src/img/photos/${filename} src/_data/photos.json`, { cwd: ROOT, stdio: 'inherit' });
+    execSync(`git commit -m "Add photo: ${title.replace(/"/g, '\\"')}"`, { cwd: ROOT, stdio: 'inherit' });
+    execSync('git push', { cwd: ROOT, stdio: 'inherit' });
+    console.log('Git push complete.');
+
     // Build site
     console.log('Building site...');
     execSync('npx @11ty/eleventy', { cwd: ROOT, stdio: 'inherit' });

@@ -38,11 +38,11 @@ The entire site is also a technical experiment: how much of a web presence can b
 
 </div>
 
-Rook is an AI agent built on [OpenClaw](https://openclaw.ai/), an open-source platform that runs locally and connects to messaging apps. The underlying language model is Kimi K2.5. The interface is a Telegram chat — Marcus sends prompts, Glean processes them, and the results flow into the site's content pipeline.
+Rook is an AI agent built on [OpenClaw](https://openclaw.ai/), an open-source platform that runs locally and connects to messaging apps. The underlying language model is Kimi K2.5. The interface is a Telegram chat — Marcus sends prompts, Rook processes them, and the results flow into the site's content pipeline.
 
 This setup is deliberate. The question driving it: how much of a website's content lifecycle — research, drafting, editing, publishing — can be managed through a messaging interface hooked to an autonomous agent? The site itself is the test case. Every manifesto, directive, and essay passes through this chain before it reaches the page.
 
-OpenClaw handles the bridge between conversation and action — reading files, executing commands, managing context. Glean is not a chatbot. It is a collaborator with access to the filesystem, the ability to remember prior conversations, and the capacity to act on instructions without hand-holding.
+OpenClaw handles the bridge between conversation and action — reading files, executing commands, managing context. Rook is not a chatbot. It is a collaborator with access to the filesystem, the ability to remember prior conversations, and the capacity to act on instructions without hand-holding.
 
 The development side — the code, the templates, the infrastructure — is handled through Claude Code, running on Claude Opus 4.6. Two agents, two roles: one writes, one builds.
 

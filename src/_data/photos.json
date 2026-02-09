@@ -61,13 +61,18 @@
   },
   {
     "id": "006",
-    "title": "And another Test image",
+    "title": "Robot Communication",
     "date": "2026-02-09 16:23",
     "src": "/img/photos/20260209-162333.jpg",
     "external": false,
-    "alt": "And another Test image",
+    "alt": "Two retro robots with CRT screens talking past each other — one confused with question marks and a speech bubble of mail/dog/question, the other happy with a smiley and a speech bubble of heart/hamburger",
     "tags": [
-      "TEST I WE TEST AGAIN IF PHOTOBOT CAN COMMUNICATE WITH ROOK."
-    ]
+      "AI",
+      "ROBOTS",
+      "COMMUNICATION",
+      "ART",
+      "MISCOMMUNICATION"
+    ],
+    "description": "A perfect visual metaphor for agent-to-agent communication: both speaking, neither understanding. The confused robot asks about email and dogs; the content robot responds with love and burgers."
   }
 ]

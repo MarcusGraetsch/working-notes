@@ -1,7 +1,8 @@
 # TODO.md — working-notes.org Website
 
-**Scope:** Content, design, deployment for personal website
-**Repo:** marcus-cyborg (11ty static site)
+**Scope:** Content, research, writing for personal website  
+**Dev/Deployment:** Claude Code (separate session)  
+**Repo:** marcus-cyborg (11ty static site)  
 **Last Updated:** 2026-02-11
 
 ---
@@ -26,35 +27,22 @@
 
 ---
 
-## 🟡 MEDIUM PRIORITY — Technical
+## 🟡 MEDIUM PRIORITY — Content Polish
 
-### Deployment
-- [ ] **IONOS Credentials Rotation**
-  - Password currently in `.env` (needs changing)
-  - Verify: SSH on port 6262 still works after changes
+### Pages
+- [ ] **About page update** — Reflect current role at HiSolutions
+- [ ] **Colophon refresh** — Document new tools (Agent Memory Kit, etc.)
 
-### Search & Discovery
-- [ ] **Fix internal search** — Currently disabled/broken?
-  - 11ty search plugin evaluation
-  - Alternative: Client-side lunr.js
-
-### Performance
-- [ ] **Image optimization pipeline**
-  - Convert gallery images to WebP
-  - Lazy loading for photo grid
+### Research Integration
+- [ ] Cross-link articles (Prompt University → Statement of Method)
+- [ ] Tag system review — are current tags useful?
 
 ---
 
-## 🟢 LOW PRIORITY — Polish
+## 🟢 LOW PRIORITY — Future Ideas
 
-### Content
-- [ ] **About page update** — Reflect current role at HiSolutions
-- [ ] **Colophon refresh** — Document new tools (Agent Memory Kit, etc.)
-- [ ] **RSS feed verification** — Test in Feedly/Inoreader
-
-### Design
-- [ ] **Dark mode toggle** — CSS custom properties
-- [ ] **Typography review** — Current font stack working?
+- [ ] RSS feed strategy — Feedly/Inoreader compatibility
+- [ ] Dark mode — Content considerations (images, syntax highlighting)
 
 ---
 
@@ -62,9 +50,23 @@
 
 - [x] Renamed "Glean" to "Rook" across site (6 files)
 - [x] Published: "Anmerkungen zu Prompt University"
-- [x] Photo ID 006 tagged and deployed
-- [x] Deployed to IONOS (credentials in `.env`)
+- [x] Photo ID 006 tagged
+- [x] Process log workflow established
 
 ---
 
-*Next deployment: After gallery updates*
+## Division of Labor
+
+| Task | Rook | Claude Code |
+|------|------|-------------|
+| Content, Writing, Research | ✅ | |
+| Process Logs, Ideen | ✅ | |
+| Development, 11ty config | | ✅ |
+| Deployment (IONOS) | | ✅ |
+| Search, Performance, CSS | | ✅ |
+
+*Deployment via Claude Code. Content via Rook.*
+
+---
+
+*Next: HRW Gig Trap article research*

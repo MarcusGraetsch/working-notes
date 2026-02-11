@@ -20,10 +20,12 @@
   - Cross-reference: Marx on piecework/monitoring
 
 ### Photo Gallery
-- [ ] **Re-tag remaining gallery images**
-  - Need: Metadata/descriptions from Marcus
-  - Current: ID 006 tagged (robot communication)
-  - Pending: All other photos in `src/img/photos/`
+- [x] **Re-tag remaining gallery images** ✅ DONE 2026-02-11
+  - 002: Collective Self — cyberpunk manifesto
+  - 003: Evolution Triptychon — ape to hacker
+  - 004: Digital Evolution — three stages, three colors
+  - 005: Telegram Bot Chat — bot-to-bot communication
+  - 006: Robot Communication — talking past each other
 
 ---
 

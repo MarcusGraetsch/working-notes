@@ -15,9 +15,9 @@
   - Migrated: `statement-of-method.process.md`, `anmerkungen-zu-prompt-university.process.md`
   - Next: Apply to future articles
 
-- [ ] **Article: Gig Economy Research Notes** — Based on HRW "Gig Trap" report
-  - Draft: Personal take on algorithmic management
-  - Cross-reference: Marx on piecework/monitoring
+- [ ] **Research: Gig Economy Primary Sources** — Document findings from cyberspace-project research
+  - Cross-reference: cyberspace-project/TODO.md for HRW "Gig Trap" report
+  - Note: Research happens in cyberspace-project repo, articles may end up here
 
 ### Photo Gallery
 - [x] **Re-tag remaining gallery images** ✅ DONE 2026-02-11

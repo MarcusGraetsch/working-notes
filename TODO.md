@@ -37,7 +37,14 @@
 - [ ] **About page — Continuation** (ongoing writing project)
   - Notes: `src/writing/about-continuation-notes.md`
   - Format: Marcus provides bullet points → Rook expands
-  - Timeline: Meuterei, Left Forum, CUNY, transition to tech, HiSolutions
+  - **NEW: Berlin activism period added**
+    - Student strike 2003/2004 (Studiengebühren verhindert!)
+    - AStA Referent Internationalismus/Antirepression
+    - BUKO Kongress, reflect Verein, Fels
+    - G8 Heiligendamm
+    - Diplomarbeit Afghanistan (180 Seiten, 3 Monate)
+    - Interventionistische Linke (Mitgründung)
+  - **Explicit political disclosure** — transparency regardless of AfD/trump climate
 - [ ] **Colophon refresh** — Document new tools (Agent Memory Kit, etc.)
 
 ### Research Integration

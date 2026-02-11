@@ -32,7 +32,9 @@
 ## 🟡 MEDIUM PRIORITY — Content Polish
 
 ### Pages
-- [ ] **About page update** — Reflect current role at HiSolutions
+- [x] **About page update** ✅ DONE 2026-02-11
+  - Added academic background: Bremen, Warwick, BuFaTa, IPOSS e.V.
+  - Included GATS campaign, Marx reading group, Coventry experience
 - [ ] **Colophon refresh** — Document new tools (Agent Memory Kit, etc.)
 
 ### Research Integration

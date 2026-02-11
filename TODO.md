@@ -32,9 +32,12 @@
 ## 🟡 MEDIUM PRIORITY — Content Polish
 
 ### Pages
-- [x] **About page update** ✅ DONE 2026-02-11
-  - Added academic background: Bremen, Warwick, BuFaTa, IPOSS e.V.
-  - Included GATS campaign, Marx reading group, Coventry experience
+- [x] **About page — Part 1** ✅ DONE 2026-02-11
+  - Academic background: Bremen, Warwick, BuFaTa, IPOSS, POLITIKON
+- [ ] **About page — Continuation** (ongoing writing project)
+  - Notes: `src/writing/about-continuation-notes.md`
+  - Format: Marcus provides bullet points → Rook expands
+  - Timeline: Meuterei, Left Forum, CUNY, transition to tech, HiSolutions
 - [ ] **Colophon refresh** — Document new tools (Agent Memory Kit, etc.)
 
 ### Research Integration

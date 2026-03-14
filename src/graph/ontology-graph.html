@@ -11,18 +11,18 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #fafafa;
         }
-        
+
         #graph-container {
             width: 100%;
             height: 100vh;
             background: #fafafa;
         }
-        
+
         .controls {
             position: absolute;
             top: 20px;
@@ -33,13 +33,13 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             z-index: 100;
         }
-        
+
         .controls h3 {
             margin-bottom: 10px;
             font-size: 14px;
             color: #333;
         }
-        
+
         .controls button {
             display: block;
             width: 100%;
@@ -51,16 +51,16 @@
             font-size: 12px;
             transition: opacity 0.2s;
         }
-        
+
         .controls button:hover {
             opacity: 0.8;
         }
-        
+
         .btn-all { background: #3498db; color: white; }
         .btn-concepts { background: #e74c3c; color: white; }
         .btn-tasks { background: #2ecc71; color: white; }
         .btn-articles { background: #9b59b6; color: white; }
-        
+
         .legend {
             position: absolute;
             bottom: 20px;
@@ -71,21 +71,47 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             z-index: 100;
         }
-        
+
         .legend-item {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
             font-size: 12px;
         }
-        
+
         .legend-color {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             margin-right: 8px;
         }
-        
+
+        .stats {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stats strong {
+            color: #333;
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: #999;
+        }
+
         .tooltip {
             position: absolute;
             padding: 10px;
@@ -108,163 +134,106 @@
         <button class="btn-tasks" onclick="filterGraph('tasks')">Nur Tasks</button>
         <button class="btn-articles" onclick="filterGraph('articles')">Nur Artikel</button>
     </div>
-    
+
     <div class="legend">
         <div class="legend-item">
             <div class="legend-color" style="background: #e74c3c;"></div>
-            <span>Konzepte (12)</span>
+            <span id="legend-concepts">Konzepte</span>
         </div>
         <div class="legend-item">
             <div class="legend-color" style="background: #2ecc71;"></div>
-            <span>Research Tasks (7)</span>
+            <span id="legend-tasks">Research Tasks</span>
         </div>
         <div class="legend-item">
             <div class="legend-color" style="background: #3498db;"></div>
-            <span>Artikel (1,104+)</span>
+            <span id="legend-articles">Artikel</span>
         </div>
     </div>
-    
-    <div id="graph-container"></div>
-    <div class="tooltip" id="tooltip"></div>
-    
-    <script>
-// Graph data - loaded from ontology
-const graphData = {
-    nodes: [
-        // Concepts (red) - 12 concepts
-        { id: "concept_platform_capitalism", name: "Platform Capitalism", type: "concept", group: 1, size: 30, description: "Plattformen als intermediäre Märkte (Srnicek)" },
-        { id: "concept_surveillance_capitalism", name: "Surveillance Capitalism", type: "concept", group: 1, size: 35, description: "Datenextraktion als Geschäftsmodell (Zuboff)" },
-        { id: "concept_gig_economy", name: "Gig Economy", type: "concept", group: 1, size: 32, description: "Plattform-basierte Arbeitsverhältnisse" },
-        { id: "concept_data_extractivism", name: "Data Extractivism", type: "concept", group: 1, size: 25, description: "Datenkolonialismus im Globalen Süden" },
-        { id: "concept_precarious_work", name: "Precarious Work", type: "concept", group: 1, size: 28, description: "Prekäre Arbeit in der Gig Economy" },
-        { id: "concept_labor_organizing", name: "Labor Organizing", type: "concept", group: 1, size: 20, description: "Gewerkschaften in Tech-Unternehmen" },
-        { id: "concept_digital_climate_impact", name: "Digital Climate Impact", type: "concept", group: 1, size: 32, description: "CO2-Fußabdruck der Digitalisierung" },
-        { id: "concept_data_center_energy", name: "Data Center Energy", type: "concept", group: 1, size: 28, description: "Energieverbrauch von Rechenzentren" },
-        { id: "concept_e_waste", name: "E-Waste", type: "concept", group: 1, size: 26, description: "Elektronikschrott und Obsoleszenz" },
-        { id: "concept_critical_minerals", name: "Critical Minerals", type: "concept", group: 1, size: 30, description: "Lithium, Kobalt, Seltene Erden" },
-        { id: "concept_green_colonialism", name: "Green Colonialism", type: "concept", group: 1, size: 28, description: "Grüne Energiewende durch Ausbeutung" },
-        { id: "concept_environmental_justice", name: "Environmental Justice", type: "concept", group: 1, size: 24, description: "Umweltgerechtigkeit und Tech" },
-        
-        // Tasks (green) - 7 tasks
-        { id: "task_chapter_platform_capitalism", name: "Platform Capitalism Theory", type: "task", group: 2, size: 22, description: "Theoretische Grundlegung (Deadline: Apr 2026)" },
-        { id: "task_gig_economy_empirics", name: "Gig Economy Empirics", type: "task", group: 2, size: 24, description: "702 Artikel zu Gig Work (Deadline: Apr 2026)" },
-        { id: "task_labor_organizing", name: "Labor Organizing Cases", type: "task", group: 2, size: 20, description: "Amazon, Google, Uber Worker Organizing" },
-        { id: "task_ki_labor_impact", name: "AI Labor Impact", type: "task", group: 2, size: 26, description: "1,104 Artikel zu KI und Arbeit" },
-        { id: "task_eu_regulation", name: "EU Regulation", type: "task", group: 2, size: 18, description: "DMA, DSA, AI Act Analyse" },
-        { id: "task_global_south", name: "Global South", type: "task", group: 2, size: 18, description: "Koloniale Dimension der Digitalisierung" },
-        { id: "task_environmental_impact", name: "Environmental Impact", type: "task", group: 2, size: 28, description: "Neu: Ökologische Kosten der Digitalisierung" },
-        
-        // Sample Articles (blue) - representing the collection
-        { id: "article_1", name: "Uber Labor Rights", type: "article", group: 3, size: 15 },
-        { id: "article_2", name: "Amazon Union News", type: "article", group: 3, size: 15 },
-        { id: "article_3", name: "Platform Coop Study", type: "article", group: 3, size: 15 },
-        { id: "article_4", name: "AI Worker Surveillance", type: "article", group: 3, size: 15 },
-        { id: "article_5", name: "Gig Economy Precarity", type: "article", group: 3, size: 15 },
-        { id: "article_6", name: "Tech Workers Coalition", type: "article", group: 3, size: 15 },
-        { id: "article_7", name: "Data Colonialism Study", type: "article", group: 3, size: 15 },
-        { id: "article_8", name: "EU DMA Regulation", type: "article", group: 3, size: 15 },
-        { id: "article_9", name: "AI Automation Impact", type: "article", group: 3, size: 15 },
-        { id: "article_10", name: "LaborNet Report", type: "article", group: 3, size: 15 },
-        { id: "article_11", name: "Data Center Water Crisis", type: "article", group: 3, size: 15 },
-        { id: "article_12", name: "Cobalt Mining DRC", type: "article", group: 3, size: 15 },
-        { id: "article_13", name: "E-Waste Ghana", type: "article", group: 3, size: 15 },
-    ],
-    links: [
-        // Concept-Article relations
-        { source: "article_1", target: "concept_gig_economy", type: "discusses" },
-        { source: "article_1", target: "concept_precarious_work", type: "discusses" },
-        { source: "article_2", target: "concept_labor_organizing", type: "discusses" },
-        { source: "article_2", target: "concept_precarious_work", type: "discusses" },
-        { source: "article_3", target: "concept_platform_capitalism", type: "discusses" },
-        { source: "article_4", target: "concept_surveillance_capitalism", type: "discusses" },
-        { source: "article_4", target: "concept_gig_economy", type: "discusses" },
-        { source: "article_5", target: "concept_gig_economy", type: "discusses" },
-        { source: "article_5", target: "concept_precarious_work", type: "discusses" },
-        { source: "article_6", target: "concept_labor_organizing", type: "discusses" },
-        { source: "article_7", target: "concept_data_extractivism", type: "discusses" },
-        { source: "article_7", target: "concept_surveillance_capitalism", type: "discusses" },
-        { source: "article_8", target: "concept_platform_capitalism", type: "discusses" },
-        { source: "article_9", target: "concept_surveillance_capitalism", type: "discusses" },
-        { source: "article_10", target: "concept_labor_organizing", type: "discusses" },
-        { source: "article_11", target: "concept_data_center_energy", type: "discusses" },
-        { source: "article_11", target: "concept_digital_climate_impact", type: "discusses" },
-        { source: "article_12", target: "concept_critical_minerals", type: "discusses" },
-        { source: "article_12", target: "concept_green_colonialism", type: "discusses" },
-        { source: "article_13", target: "concept_e_waste", type: "discusses" },
-        { source: "article_13", target: "concept_environmental_justice", type: "discusses" },
-        
-        // Task-Concept relations
-        { source: "task_chapter_platform_capitalism", target: "concept_platform_capitalism", type: "covers" },
-        { source: "task_gig_economy_empirics", target: "concept_gig_economy", type: "covers" },
-        { source: "task_gig_economy_empirics", target: "concept_precarious_work", type: "covers" },
-        { source: "task_labor_organizing", target: "concept_labor_organizing", type: "covers" },
-        { source: "task_ki_labor_impact", target: "concept_surveillance_capitalism", type: "covers" },
-        { source: "task_eu_regulation", target: "concept_platform_capitalism", type: "covers" },
-        { source: "task_global_south", target: "concept_data_extractivism", type: "covers" },
-        { source: "task_environmental_impact", target: "concept_digital_climate_impact", type: "covers" },
-        { source: "task_environmental_impact", target: "concept_data_center_energy", type: "covers" },
-        { source: "task_environmental_impact", target: "concept_critical_minerals", type: "covers" },
-        { source: "task_environmental_impact", target: "concept_green_colonialism", type: "covers" },
-        
-        // Related articles
-        { source: "article_1", target: "article_5", type: "related" },
-        { source: "article_2", target: "article_6", type: "related" },
-        { source: "article_3", target: "article_8", type: "related" },
-        { source: "article_4", target: "article_9", type: "related" },
-        { source: "article_7", target: "article_10", type: "related" },
-        { source: "article_11", target: "article_12", type: "related" },
-        { source: "article_12", target: "article_13", type: "related" },
-        { source: "article_11", target: "article_13", type: "related" },
-    ]
-};
 
+    <div class="stats" id="stats"></div>
+
+    <div id="graph-container">
+        <div class="loading" id="loading">Lade Forschungsdaten...</div>
+    </div>
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
 let simulation, svg, link, node, g;
 const tooltip = d3.select("#tooltip");
 
-function initGraph() {
+async function loadGraphData() {
+    try {
+        const response = await fetch('/graph/graph-data.json');
+        if (!response.ok) throw new Error('Failed to load graph data');
+        return await response.json();
+    } catch (err) {
+        document.getElementById('loading').textContent = 'Fehler beim Laden der Daten: ' + err.message;
+        throw err;
+    }
+}
+
+function initGraph(graphData) {
+    document.getElementById('loading').style.display = 'none';
+
+    // Update legend with live counts
+    const stats = graphData.stats;
+    document.getElementById('legend-concepts').textContent = 'Konzepte (' + stats.concepts + ')';
+    document.getElementById('legend-tasks').textContent = 'Research Tasks (' + stats.tasks + ')';
+    document.getElementById('legend-articles').textContent = 'Artikel (' + stats.totalArticles.toLocaleString('de-DE') + ' gesamt, ' + stats.displayedArticles + ' angezeigt)';
+
+    // Show stats
+    const generated = new Date(graphData.generated);
+    document.getElementById('stats').innerHTML =
+        '<strong>Live-Daten</strong><br>' +
+        stats.totalArticles.toLocaleString('de-DE') + ' Artikel gesammelt<br>' +
+        stats.matchedArticles + ' thematisch zugeordnet<br>' +
+        stats.links + ' Verknüpfungen<br>' +
+        '<br>Stand: ' + generated.toLocaleDateString('de-DE');
+
     const container = document.getElementById('graph-container');
     const width = container.clientWidth;
     const height = container.clientHeight;
-    
+
     svg = d3.select('#graph-container')
         .append('svg')
         .attr('width', width)
         .attr('height', height)
         .attr('viewBox', [0, 0, width, height]);
-    
-    // Add zoom behavior
+
     g = svg.append('g');
-    
+
     svg.call(d3.zoom()
         .extent([[0, 0], [width, height]])
         .scaleExtent([0.3, 4])
         .on('zoom', (event) => {
             g.attr('transform', event.transform);
         }));
-    
-    // Color scale
+
     const color = d3.scaleOrdinal()
         .domain([1, 2, 3])
         .range(['#e74c3c', '#2ecc71', '#3498db']);
-    
-    // Simulation
+
     simulation = d3.forceSimulation(graphData.nodes)
-        .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(120))
-        .force('charge', d3.forceManyBody().strength(-400))
+        .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(d => {
+            // Shorter distance for task-concept links, longer for article links
+            if (d.type === 'covers') return 80;
+            if (d.type === 'related') return 60;
+            return 100;
+        }))
+        .force('charge', d3.forceManyBody().strength(d => d.type === 'concept' ? -600 : -200))
         .force('center', d3.forceCenter(width / 2, height / 2))
-        .force('collision', d3.forceCollide().radius(d => d.size + 10));
-    
-    // Draw links
+        .force('collision', d3.forceCollide().radius(d => d.size + 5));
+
     link = g.append('g')
         .attr('stroke', '#999')
-        .attr('stroke-opacity', 0.6)
+        .attr('stroke-opacity', 0.4)
         .selectAll('line')
         .data(graphData.links)
         .join('line')
-        .attr('stroke-width', d => d.type === 'related' ? 1.5 : 2.5)
-        .attr('stroke-dasharray', d => d.type === 'related' ? '5,5' : null);
-    
-    // Draw nodes
+        .attr('stroke-width', d => d.type === 'covers' ? 3 : d.type === 'related' ? 1 : 1.5)
+        .attr('stroke-dasharray', d => d.type === 'related' ? '4,4' : null)
+        .attr('stroke', d => d.type === 'covers' ? '#2ecc71' : '#999');
+
     node = g.append('g')
         .selectAll('g')
         .data(graphData.nodes)
@@ -273,46 +242,51 @@ function initGraph() {
             .on('start', dragstarted)
             .on('drag', dragged)
             .on('end', dragended));
-    
-    // Node circles
+
     node.append('circle')
         .attr('r', d => d.size)
         .attr('fill', d => color(d.group))
         .attr('stroke', '#fff')
-        .attr('stroke-width', 3)
-        .style('cursor', 'grab')
+        .attr('stroke-width', d => d.type === 'concept' ? 3 : 2)
+        .style('cursor', d => d.url ? 'pointer' : 'grab')
         .on('mouseover', function(event, d) {
+            let html = '<strong>' + d.name + '</strong>';
+            if (d.description) html += '<br/>' + d.description;
+            if (d.articleCount) html += '<br/><em>' + d.articleCount + ' Artikel</em>';
             tooltip
                 .style('opacity', 1)
-                .html(`<strong>${d.name}</strong><br/>${d.description || ''}`)
+                .html(html)
                 .style('left', (event.pageX + 10) + 'px')
                 .style('top', (event.pageY - 10) + 'px');
         })
         .on('mouseout', function() {
             tooltip.style('opacity', 0);
+        })
+        .on('click', function(event, d) {
+            if (d.url) window.open(d.url, '_blank');
         });
-    
-    // Node labels
-    node.append('text')
+
+    // Labels only for concepts and tasks (articles too cluttered)
+    node.filter(d => d.type !== 'article')
+        .append('text')
         .text(d => d.name)
         .attr('x', 0)
         .attr('y', d => d.size + 15)
         .attr('text-anchor', 'middle')
         .attr('font-size', '11px')
-        .attr('font-weight', '500')
+        .attr('font-weight', '600')
         .attr('fill', '#333')
         .style('pointer-events', 'none')
         .style('text-shadow', '0 1px 2px rgba(255,255,255,0.8)');
-    
-    // Update positions
+
     simulation.on('tick', () => {
         link
             .attr('x1', d => d.source.x)
             .attr('y1', d => d.source.y)
             .attr('x2', d => d.target.x)
             .attr('y2', d => d.target.y);
-        
-        node.attr('transform', d => `translate(${d.x},${d.y})`);
+
+        node.attr('transform', d => 'translate(' + d.x + ',' + d.y + ')');
     });
 }
 
@@ -332,34 +306,40 @@ function dragended(event, d) {
     if (!event.active) simulation.alphaTarget(0);
     d.fx = null;
     d.fy = null;
-    d3.select(this).select('circle').style('cursor', 'grab');
+    d3.select(this).select('circle').style('cursor', d.url ? 'pointer' : 'grab');
 }
 
 function filterGraph(type) {
     if (!node || !link) return;
-    
+
     if (type === 'all') {
         node.transition().duration(300).style('opacity', 1);
         link.transition().duration(300).style('opacity', 1);
     } else if (type === 'concepts') {
         node.transition().duration(300).style('opacity', d => d.type === 'concept' ? 1 : 0.1);
-        link.transition().duration(300).style('opacity', 0.1);
+        link.transition().duration(300).style('opacity', d =>
+            (d.type === 'covers') ? 0.6 : 0.05
+        );
     } else if (type === 'tasks') {
-        node.transition().duration(300).style('opacity', d => d.type === 'task' ? 1 : 0.1);
-        link.transition().duration(300).style('opacity', 0.1);
+        node.transition().duration(300).style('opacity', d => (d.type === 'task' || d.type === 'concept') ? 1 : 0.1);
+        link.transition().duration(300).style('opacity', d =>
+            (d.type === 'covers') ? 1 : 0.05
+        );
     } else if (type === 'articles') {
-        node.transition().duration(300).style('opacity', d => d.type === 'article' ? 1 : 0.1);
-        link.transition().duration(300).style('opacity', d => 
-            (d.source.type === 'article' && d.target.type === 'article') ? 1 : 0.1
+        node.transition().duration(300).style('opacity', d => d.type === 'article' ? 1 : 0.15);
+        link.transition().duration(300).style('opacity', d =>
+            (d.source.type === 'article' || d.target.type === 'article') ? 0.6 : 0.05
         );
     }
 }
 
-// Initialize on load
-window.addEventListener('load', initGraph);
+// Load data and initialize
+window.addEventListener('load', () => {
+    loadGraphData().then(initGraph);
+});
 window.addEventListener('resize', () => {
     d3.select('#graph-container svg').remove();
-    setTimeout(initGraph, 100);
+    loadGraphData().then(initGraph);
 });
     </script>
 </body>

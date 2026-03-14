@@ -6,7 +6,7 @@ date: 2026-03-14
 
 # Knowledge Graph
 
-Interaktive Visualisierung unserer Forschungsontologie. Konzepte (rot), Research Tasks (grün) und Artikel (blau) in ihren Verknüpfungen.
+Interaktive Visualisierung unserer Forschungsontologie — live generiert aus den Daten des [Digital Capitalism Research](https://github.com/MarcusGraetsch/digital-capitalism-research) Projekts.
 
 <iframe
     src="/graph/ontology-graph.html"
@@ -17,13 +17,16 @@ Interaktive Visualisierung unserer Forschungsontologie. Konzepte (rot), Research
 >
 </iframe>
 
-**Legende:** <span style="color: #e74c3c;">● Konzepte (12)</span> | <span style="color: #2ecc71;">● Tasks (7)</span> | <span style="color: #3498db;">● Artikel (1.104+)</span>
+**Legende:** <span style="color: #e74c3c;">● Konzepte</span> | <span style="color: #2ecc71;">● Research Tasks</span> | <span style="color: #3498db;">● Artikel (Auswahl)</span>
 
 **Bedienung:**
 - Mausrad zum Zoomen
 - Drag & Drop zum Neuanordnen der Knoten
-- Hover über Knoten für Details
+- Hover über Knoten für Details (Konzepte zeigen Artikelanzahl)
+- Klick auf Artikel-Knoten öffnet den Originalartikel
 - Filter-Buttons oben links
+
+**Datenquelle:** Der Graph wird bei jedem Build aus der [Ontologie-Datenbank](https://github.com/MarcusGraetsch/digital-capitalism-research/blob/master/memory/ontology/graph.jsonl) generiert. Konzepte und Tasks sind manuell kuratiert, Artikel werden automatisch über Tag- und Keyword-Matching zugeordnet.
 
 ---
 

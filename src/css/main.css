@@ -818,27 +818,10 @@ pre code {
   }
 }
 
-/* ── Theme Toggle Button ─────────────────────────────── */
+/* ── Theme Toggle ────────────────────────────────────── */
 .theme-toggle {
-  float: right;
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
-  font-family: var(--font);
-  font-size: 16px;
-  padding: 2px 8px;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-  margin-top: 2px;
-}
-
-.theme-toggle:hover {
-  color: var(--text-bright);
-  border-color: var(--text-bright);
-}
-
-.toggle-icon {
-  color: var(--green);
+  user-select: none;
 }
 
 /* ── Amber Phosphor Theme ────────────────────────────── */

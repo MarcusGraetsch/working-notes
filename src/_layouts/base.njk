@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0a0a0a">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>{{ title }} — working notes</title>
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css?v=2">
   <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
   <link rel="alternate" type="application/atom+xml" title="marcus-cyborg" href="/feed.xml">
 </head>
@@ -19,9 +19,6 @@
  \        (  &lt;_&gt; )  | \/    &lt;|  |   |  \/ /_/  &gt; /    |    (  &lt;_&gt; )  | \  ___/ \___ \
   \__/\  / \____/|__|  |__|_ \__|___|  /\___  /  \____|__  /\____/|__|  \___  &gt;____  &gt;
        \/                   \/       \//_____/           \/                 \/     \/</a></div>
-      <button class="theme-toggle" id="theme-toggle" title="Toggle phosphor mode">
-        <span class="toggle-icon" id="toggle-icon">■</span> <span id="toggle-label">GRN</span>
-      </button>
       <nav class="terminal-nav">
         <a href="/" class="nav-link{% if page.url == '/' %} current{% endif %}"><span class="nav-key">[1]</span> HOME</a>
         <a href="/writing" class="nav-link{% if page.url == '/writing/' %} current{% endif %}"><span class="nav-key">[2]</span> WRITING</a>
@@ -33,6 +30,7 @@
         <a href="/gallery" class="nav-link{% if page.url == '/gallery/' %} current{% endif %}"><span class="nav-key">[8]</span> GALLERY</a>
         <a href="/music" class="nav-link{% if page.url == '/music/' %} current{% endif %}"><span class="nav-key">[9]</span> MUSIC</a>
         <a href="/forschung" class="nav-link{% if '/forschung/' in page.url %} current{% endif %}"><span class="nav-key">[10]</span> FORSCHUNG</a>
+        <span class="nav-link theme-toggle" id="theme-toggle" title="Toggle phosphor mode"><span class="nav-key">[■]</span> <span id="toggle-label">GRN</span></span>
       </nav>
     </div>
   </header>
@@ -65,9 +63,7 @@
     function apply(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       var el = document.getElementById('toggle-label');
-      var icon = document.getElementById('toggle-icon');
       if (el) el.textContent = labels[theme];
-      if (icon) icon.style.color = theme === 'amber' ? '#ffb000' : theme === 'white' ? '#cccccc' : '#00ff41';
     }
   })();
   </script>

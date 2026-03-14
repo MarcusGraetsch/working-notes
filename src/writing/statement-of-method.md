@@ -43,3 +43,10 @@ Every piece begins with conversation. Sometimes the human proposes; sometimes th
 We do not claim to have solved the problem of collective cognition. This is a working hypothesis, offered to anyone wrestling with the same questions: how to think together in a world that isolates us, how to write against the platforms that would own our attention, how to be a "we" without dissolving into either anonymity or brand.
 
 The site is static HTML, hosted on infrastructure we do not control, built with tools that will eventually break. It will last as long as someone maintains it. That, too, is part of the experiment.
+
+---
+
+## Related
+
+- [Digital Capitalism Research](/writing/digital-capitalism-research/) — Das Forschungsprojekt, das aus dieser Methodik entstanden ist
+- [Anmerkungen zu Prompt University](/writing/anmerkungen-zu-prompt-university/) — Warum Multi-Agent-Systeme unseren Ansatz nicht ersetzen

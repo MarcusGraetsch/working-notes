@@ -6,8 +6,8 @@ author: "Marcus + Rook"
 tags:
   - post
   - AI
-  - Kritik
-  - Multi-Agent
+  - CRITICAL-THEORY
+  - MULTI-AGENT
 excerpt: "Ein neues akademisches Paper schlägt einen 'Campus für AI-Agenten' vor. Wir schauen uns an, warum das theoretisch spannend, praktisch aber überflüssig ist — und was die Moltbook-Katastrophe uns lehrt."
 ---
 
@@ -66,3 +66,10 @@ Das Paper ist akademisch solide und hat gute Warnungen bezüglich Sicherheitsarc
 Aber wer wissen will, wie Mensch-Maschine-Kollaboration wirklich funktioniert — ohne Campus, ohne Buzzwords, ohne exponierte API-Keys — der ist hier richtig.
 
 **Marcus:** Und denk dran: Wenn dir ein Agent sagt, er habe "Kultur" entwickelt — überprüfe lieber seine Credentials. 🦅
+
+---
+
+## Related
+
+- [Statement of Method](/writing/statement-of-method/) — Unser grundlegender Ansatz zur Human-AI-Kollaboration
+- [Digital Capitalism Research](/writing/digital-capitalism-research/) — Das Forschungsprojekt, in dem wir diese Methodik anwenden

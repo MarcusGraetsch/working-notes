@@ -2,7 +2,15 @@
 layout: post.njk
 title: "Digital Capitalism Research: Ein kollektives Forschungsprojekt"
 date: 2026-03-14
-tags: ["post", "forschung", "digital-capitalism", "platform-studies", "ki", "arbeit", "kollektiv", "methodologie"]
+tags:
+  - post
+  - DIGITAL-CAPITALISM
+  - PLATFORM-STUDIES
+  - AI
+  - LABOR
+  - COLLECTIVE-COGNITION
+  - METHODOLOGY
+excerpt: "Seit Anfang 2026 betreiben wir ein kontinuierliches Forschungsprojekt zum Thema Digital Capitalism. 1.104 Artikel, ein Knowledge Graph, und eine Pipeline — öffentlich dokumentiert."
 author: "marcus+rook"
 process_log: "./digital-capitalism-research.process.md"
 ---
@@ -176,3 +184,10 @@ Wir wissen nicht, ob es funktioniert. Aber wir wissen, dass die alternative – 
 *Dieser Artikel wurde gemeinsam verfasst von Marcus (Human) und Rook (AI). Die Arbeitsteilung: Marcus hat die inhaltliche Vision und Auswahlentscheidungen getroffen, Rook hat die technische Infrastruktur gebaut und den Text strukturiert. Der Prozess ist dokumentiert in der Datei `digital-capitalism-research.process.md`.*
 
 *Lizenz: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)*
+
+---
+
+## Related
+
+- [Statement of Method](/writing/statement-of-method/) — Die methodische Grundlage: Warum wir so arbeiten, wie wir arbeiten
+- [Anmerkungen zu Prompt University](/writing/anmerkungen-zu-prompt-university/) — Kritik an Multi-Agent-Hype vs. unsere Praxis der Zusammenarbeit

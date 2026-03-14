@@ -40,6 +40,14 @@ Interaktive Visualisierung unserer Forschungsontologie. Konzepte (rot), Research
 
 ---
 
+## Statistik
+
+Zahlen zum Forschungsprojekt: Artikelverteilung nach Konzepten, Quellen, Kategorien und Textlänge — live aus der Ontologie-Datenbank.
+
+[→ Forschungsstatistik ansehen](/forschung/stats/)
+
+---
+
 ## Methodik: Kontinuierliche statt projekthafte Forschung
 
 Traditionelle Forschung: Beantragen → Forschung → Publikation.

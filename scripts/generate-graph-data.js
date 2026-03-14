@@ -16,6 +16,7 @@ const JSONL_URL =
   "https://raw.githubusercontent.com/MarcusGraetsch/digital-capitalism-research/master/memory/ontology/graph.jsonl";
 
 const OUTPUT = path.resolve(__dirname, "../src/graph/graph-data.json");
+const STATS_OUTPUT = path.resolve(__dirname, "../src/graph/stats-data.json");
 
 // ── Static concept nodes (rarely change) ────────────────────────────
 const concepts = [
@@ -252,6 +253,9 @@ async function main() {
           category: p.category || "",
           publication: p.publication || "",
           url: p.url || "",
+          wordCount: p.word_count || 0,
+          importedAt: p.imported_at || "",
+          sourceType: p.source_type || "",
         });
       }
     } catch (e) {
@@ -387,6 +391,119 @@ async function main() {
   console.log(`  ${conceptNodes.length} concepts, ${taskNodes.length} tasks, ${articleNodes.length}/${articleMatches.length} articles`);
   console.log(`  ${graphData.links.length} total links`);
   console.log(`  Concept coverage: ${conceptNodes.map(c => `${c.name}(${c.articleCount})`).join(', ')}`);
+
+  // ── Generate stats data ─────────────────────────────────────────────
+  generateStats(articles, conceptConnectionCount);
+}
+
+function generateStats(articles, conceptConnectionCount) {
+  // Tag frequency
+  const tagCounts = {};
+  for (const art of articles) {
+    for (const tag of art.tags) {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    }
+  }
+  const tagFrequency = Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag, count]) => ({ tag, count }));
+
+  // Category distribution
+  const catCounts = {};
+  for (const art of articles) {
+    const cat = art.category || "unknown";
+    catCounts[cat] = (catCounts[cat] || 0) + 1;
+  }
+
+  // Publication sources (top 20)
+  const pubCounts = {};
+  for (const art of articles) {
+    const pub = art.publication || "unknown";
+    pubCounts[pub] = (pubCounts[pub] || 0) + 1;
+  }
+  const topPublications = Object.entries(pubCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 20)
+    .map(([name, count]) => ({ name, count }));
+
+  // Timeline: articles by week
+  const weekCounts = {};
+  let earliest = null;
+  let latest = null;
+  for (const art of articles) {
+    if (!art.importedAt) continue;
+    const d = new Date(art.importedAt);
+    if (isNaN(d.getTime())) continue;
+    if (!earliest || d < earliest) earliest = d;
+    if (!latest || d > latest) latest = d;
+    // ISO week key: YYYY-Www
+    const jan1 = new Date(d.getFullYear(), 0, 1);
+    const week = Math.ceil(((d - jan1) / 86400000 + jan1.getDay() + 1) / 7);
+    const key = d.getFullYear() + "-W" + String(week).padStart(2, "0");
+    weekCounts[key] = (weekCounts[key] || 0) + 1;
+  }
+  // Also by day for granular view
+  const dayCounts = {};
+  for (const art of articles) {
+    if (!art.importedAt) continue;
+    const d = new Date(art.importedAt);
+    if (isNaN(d.getTime())) continue;
+    const key = d.toISOString().slice(0, 10);
+    dayCounts[key] = (dayCounts[key] || 0) + 1;
+  }
+  const timeline = Object.entries(dayCounts)
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([date, count]) => ({ date, count }));
+
+  // Word count distribution (buckets)
+  const wordCounts = articles.map((a) => a.wordCount).filter((w) => w > 0);
+  const wcBuckets = [
+    { label: "0-200", min: 0, max: 200, count: 0 },
+    { label: "200-500", min: 200, max: 500, count: 0 },
+    { label: "500-1000", min: 500, max: 1000, count: 0 },
+    { label: "1000-2000", min: 1000, max: 2000, count: 0 },
+    { label: "2000-5000", min: 2000, max: 5000, count: 0 },
+    { label: "5000+", min: 5000, max: Infinity, count: 0 },
+  ];
+  for (const wc of wordCounts) {
+    for (const b of wcBuckets) {
+      if (wc >= b.min && wc < b.max) { b.count++; break; }
+    }
+  }
+  const avgWordCount = wordCounts.length
+    ? Math.round(wordCounts.reduce((a, b) => a + b, 0) / wordCounts.length)
+    : 0;
+  const maxWordCount = wordCounts.length ? Math.max(...wordCounts) : 0;
+
+  // Concept coverage
+  const conceptCoverage = concepts.map((c) => ({
+    name: c.name,
+    count: conceptConnectionCount[c.id] || 0,
+  })).sort((a, b) => b.count - a.count);
+
+  const statsData = {
+    generated: new Date().toISOString(),
+    overview: {
+      totalArticles: articles.length,
+      totalSources: Object.keys(pubCounts).length,
+      totalTags: Object.keys(tagCounts).length,
+      dateRange: {
+        from: earliest ? earliest.toISOString().slice(0, 10) : null,
+        to: latest ? latest.toISOString().slice(0, 10) : null,
+      },
+      avgWordCount,
+      maxWordCount,
+    },
+    tagFrequency,
+    categories: Object.entries(catCounts).map(([name, count]) => ({ name, count })),
+    topPublications,
+    timeline,
+    wordCountDistribution: wcBuckets.map((b) => ({ label: b.label, count: b.count })),
+    conceptCoverage,
+  };
+
+  fs.writeFileSync(STATS_OUTPUT, JSON.stringify(statsData));
+  console.log(`Stats data written to ${STATS_OUTPUT}`);
 }
 
 main().catch((err) => {

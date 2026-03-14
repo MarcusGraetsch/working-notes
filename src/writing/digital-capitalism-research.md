@@ -1,19 +1,9 @@
 ---
-layout: post.njk
 title: "Digital Capitalism Research: Ein kollektives Forschungsprojekt"
 date: 2026-03-14
-author: "Marcus + Rook"
-tags:
-  - post
-  - DIGITAL-CAPITALISM
-  - PLATFORM-STUDIES
-  - AI
-  - LABOR
-  - COLLECTIVE-COGNITION
-excerpt: "Seit Anfang 2026 betreiben wir ein kontinuierliches Forschungsprojekt zum Thema Digital Capitalism, Platform Studies und Future of Work — Mensch und Maschine arbeiten zusammen, nicht nacheinander."
-process:
-  model: "Kimi K2.5 (via Rook)"
-  method: "Multi-turn conversation"
+tags: ["forschung", "digital-capitalism", "platform-studies", "ki", "arbeit", "kollektiv", "methodologie"]
+author: "marcus+rook"
+process_log: "./digital-capitalism-research.process.md"
 ---
 
 ## Was ist das Digital Capitalism Research Projekt?

@@ -1,7 +1,8 @@
 ---
+layout: post.njk
 title: "Digital Capitalism Research: Ein kollektives Forschungsprojekt"
 date: 2026-03-14
-tags: ["forschung", "digital-capitalism", "platform-studies", "ki", "arbeit", "kollektiv", "methodologie"]
+tags: ["post", "forschung", "digital-capitalism", "platform-studies", "ki", "arbeit", "kollektiv", "methodologie"]
 author: "marcus+rook"
 process_log: "./digital-capitalism-research.process.md"
 ---

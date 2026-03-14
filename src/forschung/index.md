@@ -28,7 +28,7 @@ Ein kontinuierliches Forschungsprojekt zu Plattformökonomie, Überwachungskapit
 - **Umwelt**: CO2-Fußabdruck von Data Centern, Critical Minerals, Green Colonialism
 - **Globaler Süden**: Data Colonialism, Content Moderation, Ressourcenkonflikte
 
-[→ Mehr über das Projekt](/forschung/digital-capitalism-research/)
+[→ Mehr über das Projekt](/writing/digital-capitalism-research/)
 
 ---
 

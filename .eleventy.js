@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
   // Copy static files
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
+  eleventyConfig.addPassthroughCopy("src/graph");
 
   // Render a companion .process.md file if it exists
   const md = markdownIt({ html: true });

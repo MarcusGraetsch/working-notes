@@ -48,6 +48,14 @@ Zahlen zum Forschungsprojekt: Artikelverteilung nach Konzepten, Quellen, Kategor
 
 ---
 
+## Diskursnetzwerk
+
+Wer zitiert wen? Wer kritisiert, wer stimmt zu? Das Diskursnetzwerk visualisiert die Beziehungen zwischen 49 Schlüsselfiguren der Digital-Capitalism-Debatte — von Shoshana Zuboff bis Nick Srnicek, von Kritiker\*innen bis Tech-Executives.
+
+[→ Diskursnetzwerk erkunden](/forschung/discourse/)
+
+---
+
 ## Methodik: Kontinuierliche statt projekthafte Forschung
 
 Traditionelle Forschung: Beantragen → Forschung → Publikation.

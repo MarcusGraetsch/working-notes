@@ -1,0 +1,3 @@
+[submodule "web-crew"]
+	path = web-crew
+	url = git@github.com:MarcusGraetsch/web-crew.git

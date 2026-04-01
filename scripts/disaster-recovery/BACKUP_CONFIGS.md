@@ -52,6 +52,34 @@
 # 4. OAuth → Manuell neu authentifizieren
 ```
 
+## Aktueller Rook Runtime-Pfad
+
+Für die laufende Multi-Agent-Umgebung sollte der primäre Runtime-Backup-Pfad jetzt sein:
+
+```bash
+/root/.openclaw/workspace/operations/bin/backup-runtime-to-drive.sh
+```
+
+Dieser sichert gezielt:
+
+- Kanban SQLite (`engineering/rook-dashboard/data/kanban.db`)
+- kanonische Tasks und Archiv
+- Projekt-Registry
+- Health-Snapshots
+- Dispatcher-Logs
+
+Lokales Ziel:
+
+```text
+/root/backups/rook-runtime/<timestamp>/
+```
+
+Cloud-Ziel bei konfiguriertem `rclone`:
+
+```text
+gdrive:DigitalCapitalismBackups/rook-runtime/<host>/<timestamp>/
+```
+
 ## Manuelle Schritte nach Restore:
 
 1. Git Repositories klonen

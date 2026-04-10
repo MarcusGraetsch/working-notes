@@ -4,19 +4,29 @@
     "version": "0.2",
     "date": "2026-02-07",
     "title": "The Room With the Phosphor Glow",
-    "connection": "Connected to port 2600 ── BBS mode active",
+    "connection": "Connected to port 2600 \u2500\u2500 BBS mode active",
     "command": "look around",
     "file": "motd/v0.2.njk",
-    "current": true
+    "current": false
   },
   {
     "id": "v0.1",
     "version": "0.1",
     "date": "2026-02",
     "title": "The Pirates Got Jobs",
-    "connection": "Connected to port 2600 ── BBS mode active",
+    "connection": "Connected to port 2600 \u2500\u2500 BBS mode active",
     "command": "cat statement_of_method.txt",
     "file": "motd/v0.1.njk",
     "current": false
+  },
+  {
+    "id": "v0.3",
+    "version": "0.3",
+    "date": "2026-04-10",
+    "title": "The Lobster Essay",
+    "connection": "Connected to port 2600 \u2500\u2500 BBS mode active",
+    "command": "cat openclaw-essay.txt",
+    "file": "motd/v0.3.njk",
+    "current": true
   }
 ]

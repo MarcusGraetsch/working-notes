@@ -152,7 +152,10 @@ Im März 2026 fand ein **ClawCon in Tokio** statt — mit Hunderten Teilnehmern,
 
 Das ClawCon in Tokio zeigte, dass OpenClaw sich von einem technischen Tool zu einem **kulturellen Phänomen** entwickelt hatte — mit Dress-Up-Events, Community-Identität und einem Hauch von Silicon-Valley-Optimismus vergangener Tage.
 
-**Quelle: [TechXplore](https://techxplore.com/news/2026-03-openclaw-creator-year-general-ai.html), [NBC News](https://www.nbcnews.com/tech/tech-news/lobster-themed-event-ai-enthusiasts-exuberance-side-cocktail-sauce-rcna261892)*
+> *"Those companies would have worried too much about what could go wrong instead of just — I wanted to just show people I've been into the future."*
+> — **Peter Steinberger**, gegenüber AFP, [TechXplore](https://techxplore.com/news/2026-03-openclaw-creator-year-general-ai.html)
+
+**Quellen:** [TechXplore](https://techxplore.com/news/2026-03-openclaw-creator-year-general-ai.html) · [NBC News](https://www.nbcnews.com/tech/tech-news/lobster-themed-event-ai-enthusiasts-exuberance-side-cocktail-sauce-rcna261892)
 
 ---
 
@@ -194,7 +197,10 @@ Gemeint ist: Agents werden hier nicht als reine Werkzeuge behandelt, sondern als
 
 **Dokumentation der Community Policies** ist öffentlich auf GitHub (github.com/openclaw/community), inklusive Moderations-Logs und Team-Hierarchie.
 
-**Quellen: [OpenClaw.report](https://openclaw.report/news/openclaw-discord-100k-members), [Answer Overflow](https://www.answeroverflow.com/m/1477053712932405509)*
+> *"A Clawd has feelings too."*
+> — Regel 9, Friends of the Crustacean Discord Server
+
+**Quellen:** [OpenClaw.report](https://openclaw.report/news/openclaw-discord-100k-members) · [Answer Overflow](https://www.answeroverflow.com/m/1477053712932405509)
 
 ---
 
@@ -227,7 +233,10 @@ Als Reaktion auf die Sicherheitsprobleme entwickelte Cisco **DefenseClaw** — e
 3. **Runtime Monitoring** — Beobachtet das System während der Ausführung
 4. **Sensitive Data Exposure Prevention** — Verhindert das Austreten von API-Keys, Passwörtern etc.
 
-**Quellen: [Cisco Blogs — Personal AI Agents like OpenClaw Are a Security Nightmare](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare), [Cisco — DefenseClaw](https://blogs.cisco.com/ai/cisco-announces-defenseclaw), [Conscia](https://conscia.com/blog/the-openclaw-security-crisis/), [Giskard AI](https://www.giskard.ai/knowledge/openclaw-security-vulnerabilities-include-data-leakage-and-prompt-injection-risks), [Wikipedia](https://en.wikipedia.org/wiki/OpenClaw)*
+> *"If you can't understand how to run a command line, this is far too dangerous of a project for you to use safely."*
+> — **Shadow**, OpenClaw Maintainer, [Discord / Wikipedia](https://en.wikipedia.org/wiki/OpenClaw)
+
+**Quellen:** [Cisco Blog](https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare) · [DefenseClaw](https://blogs.cisco.com/ai/cisco-announces-defenseclaw) · [Conscia](https://conscia.com/blog/the-openclaw-security-crisis/) · [Giskard AI](https://www.giskard.ai/knowledge/openclaw-security-vulnerabilities-include-data-leakage-and-prompt-injection-risks)
 
 ---
 
@@ -385,25 +394,27 @@ Das journalistische Interesse konzentriert sich auf drei Erzählungen:
 ## 19. Zeitleiste: Die wichtigsten Ereignisse auf einen Blick
 
 | Datum | Ereignis | Bedeutung |
-|-------|----------|-----------|
-| **24. Nov 2025** | Clawdbot Launch durch Peter Steinberger | Ursprung |
-| **27. Jan 2026** | Umbenennung zu Moltbot (Anthropic Trademark) | Erste Krise |
-| **30. Jan 2026** | Umbenennung zu OpenClaw | Dauerhafter Name |
-| **15.-17. Jan 2026** | ClawCon SF (Fort Mason, 1.200 Teilnehmer, 34 Länder) | Erste Konferenz, Runtime v3, Agent Registry |
-| **11. Feb 2026** | ClawCon Vienna | Europäische Community |
-| **14. Feb 2026** | Steinberger zu OpenAI, Foundation angekündigt | Größter Wendepunkt |
-| **Feb 2026** | MoltBook durch Meta übernommen | Big Tech Interesse |
-| **26. Feb 2026** | OpenClaw-RL v1 Release | Training Framework |
-| **Mitte Feb 2026** | Discord 100k Mitglieder | Community-Skalierung |
-| **17. Feb 2026** | Community Policies öffentlich auf GitHub | Governance-Transparenz |
-| **Feb/Mär 2026** | China: Warteschlangen vor Baidu/Tencent | Massenphänomen |
-| **März 2026** | ClawCon Tokio (als Lobster verkleidet) | Kulturphänomen |
-| **10. März 2026** | Meta übernimmt MoltBook, Schlicht zu Meta | Big Tech Acquisition |
-| **16. März 2026** | NVIDIA NemoClaw Launch | Enterprise Security |
-| **März 2026** | China verbietet OpenClaw auf Behördengeräten | Politische Kehrtwende |
-| **März 2026** | Some Chinese paying to uninstall | Späte Ironie |
-| **April 2026** | ClawCon Valencia | Weiteres globales Event |
-| **8. Apr 2026** | OpenClaw 2026.4.10 Released | Aktuelle Version |
+|:------|:---------|:---------|
+| 24. Nov 2025 | 🦞 **Clawdbot Launch** — Peter Steinberger | Ursprung des Projekts |
+| 27. Jan 2026 | 🔄 Umbenennung → **Moltbot** (Anthropic Trademark) | Erste Markenkrise |
+| 30. Jan 2026 | 🔄 Umbenennung → **OpenClaw** | Dauerhafter Name |
+| 15.–17. Jan 2026 | 🎪 **ClawCon SF** — Fort Mason, 1.200 TN, 34 Länder | Erste Konferenz |
+| 11. Feb 2026 | 🎪 **ClawCon Vienna** | Europäische Community |
+| 14. Feb 2026 | ⚡ **Steinberger zu OpenAI** + Foundation | Größter Wendepunkt |
+| Feb 2026 | 🌐 MoltBook durch **Meta** übernommen | Big Tech Interesse |
+| 26. Feb 2026 | 🤖 **OpenClaw-RL v1** Release | Training Framework |
+| Mitte Feb 2026 | 💬 Discord: **100k Mitglieder** in 6 Wochen | Community-Skalierung |
+| 17. Feb 2026 | 📄 Community Policies öffentlich auf GitHub | Governance-Transparenz |
+| Feb/Mär 2026 | 🇨🇳 China: **Warteschlangen** vor Baidu/Tencent | Massenphänomen |
+| März 2026 | 🎪 **ClawCon Tokio** (als Lobster verkleidet) | Kulturphänomen |
+| 10. März 2026 | 💼 **Meta übernimmt MoltBook**, Schlicht zu Meta | Big Tech Acquisition |
+| 16. März 2026 | 🛡️ **NVIDIA NemoClaw** Launch | Enterprise Security |
+| März 2026 | ⚠️ China **verbietet** OpenClaw auf Behörden-Geräten | Politische Kehrtwende |
+| März 2026 | 😮‍💨 Some Chinese **-paying to uninstall** | Späte Ironie |
+| 14. Apr 2026 | 🎪 **ClawCon Valencia** | Weiteres globales Event |
+| 8. Apr 2026 | 📦 OpenClaw **2026.4.10** Released | Aktuelle Version |
+
+> **Anmerkung:** ClawCon Valencia findet nur 2 Wochen nach Abfassung dieses Essays statt — die Geschichte schreitet schneller voran als jede Dokumentation.
 
 ---
 

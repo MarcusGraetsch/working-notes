@@ -3,60 +3,115 @@ layout: base.njk
 ---
 
 <style>
-/DISCORD-CHAT STYLES/
-/* Host container */
+/* Discord-native Dark Theme */
 .discord-post {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 1rem;
+  background: #0f0f0f;
+  min-height: 100vh;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
-/* Header */
-.discord-post .post-header {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #4f545c;
-}
-
-.discord-header-meta {
+/* Channel header */
+.discord-channel-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #1e1f22;
+  border-bottom: 1px solid #2f3136;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+}
+
+.discord-channel-header .channel-hash {
+  color: #949ba4;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.discord-channel-header .channel-name {
+  color: #f2f3f5;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.discord-channel-header .online-dot {
+  width: 8px;
+  height: 8px;
+  background: #3ba55d;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+/* Post header */
+.discord-post .post-header {
+  margin: 0;
+  padding: 2rem 2rem 1rem;
+  border-bottom: none;
+  background: #0f0f0f;
+}
+
+.discord-post .post-header h1 {
+  color: #fff;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.discord-channel-tag {
-  background: #3b59f0;
-  color: white;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  font-family: monospace;
+.discord-post .meta {
+  color: #949ba4;
+  font-size: 0.8rem;
 }
 
-.discord-channel-name {
-  color: #b9bbbe;
-  font-size: 0.85rem;
+/* Tag list */
+.discord-post .tag-list {
+  margin-top: 0.75rem;
+}
+
+.discord-post .tag {
+  background: #2f3136;
+  color: #949ba4;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  margin-right: 4px;
+}
+
+/* Date divider */
+.discord-date-divider {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.discord-date-divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #2f3136;
+}
+
+.discord-date-divider span {
+  background: #4f545c;
+  color: #949ba4;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 1rem;
+}
+
+/* Chat area */
+.discord-chat {
+  padding: 0;
 }
 
 /* Intro block */
 .discord-intro {
-  background: #2f3136;
-  border-left: 4px solid #3ba55d;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-  color: #dcddde;
+  margin: 0;
+  padding: 1rem 2rem;
+  color: #949ba4;
   font-size: 0.9rem;
-  border-radius: 0 8px 8px 0;
-}
-
-/* Chat container */
-.discord-chat {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  border-bottom: 1px solid #2f3136;
 }
 
 /* Individual message */
@@ -64,8 +119,8 @@ layout: base.njk
   display: grid;
   grid-template-columns: 40px 1fr;
   gap: 0 16px;
-  padding: 4px 0;
-  border-radius: 8px;
+  padding: 4px 1rem;
+  position: relative;
 }
 
 .discord-msg:hover {
@@ -74,7 +129,7 @@ layout: base.njk
 
 /* Avatar */
 .discord-avatar {
-  padding-top: 4px;
+  padding-top: 6px;
 }
 
 .discord-avatar-circle {
@@ -85,7 +140,7 @@ layout: base.njk
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -111,7 +166,8 @@ layout: base.njk
   display: flex;
   align-items: baseline;
   gap: 8px;
-  margin-bottom: 4px;
+  padding-top: 4px;
+  margin-bottom: 2px;
   flex-wrap: wrap;
 }
 
@@ -120,24 +176,24 @@ layout: base.njk
   font-size: 0.95rem;
 }
 
-.discord-msg.rook .discord-name { color: #23a55a; }
-.discord-msg.phoenix .discord-name { color: #f26522; }
-.discord-msg.other .discord-name { color: #7276da; }
+.discord-msg.rook .discord-name { color: #fff; }
+.discord-msg.phoenix .discord-name { color: #fff; }
+.discord-msg.other .discord-name { color: #fff; }
 
 .discord-bot-badge {
   background: #5865f2;
   color: white;
   padding: 1px 5px;
   border-radius: 3px;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .discord-time {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #72767d;
+  margin-left: 4px;
 }
 
 /* Content */
@@ -150,7 +206,7 @@ layout: base.njk
 }
 
 .discord-content p {
-  margin: 0.4em 0;
+  margin: 0.3em 0;
 }
 
 .discord-content strong {
@@ -179,38 +235,57 @@ layout: base.njk
   font-style: italic;
 }
 
-.discord-content a {
-  color: #00aff4;
-}
-
 /* Footer */
 .discord-footer {
-  margin-top: 2rem;
+  margin: 1rem 2rem 2rem;
   padding: 1rem;
   background: #2f3136;
   border-radius: 8px;
   text-align: center;
-  font-size: 0.85rem;
-  color: #72767d;
+  font-size: 0.8rem;
+  color: #949ba4;
 }
 
 .discord-footer a {
   color: #00aff4;
 }
 
+/* Nav */
+.discord-post .post-nav {
+  padding: 1rem 2rem;
+  border-top: 1px solid #2f3136;
+}
+
+.discord-post .post-nav a {
+  color: #949ba4;
+  font-size: 0.85rem;
+}
+
+.discord-post .section-divider {
+  display: none;
+}
+
 /* Mobile */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .discord-msg {
     grid-template-columns: 32px 1fr;
-    gap: 0 10px;
+    gap: 0 12px;
+    padding: 3px 0.75rem;
   }
   .discord-avatar-circle {
     width: 32px;
     height: 32px;
-    font-size: 0.9rem;
-  }
-  .discord-name {
     font-size: 0.85rem;
+  }
+  .discord-post .post-header,
+  .discord-intro,
+  .discord-footer,
+  .discord-post .post-nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .discord-date-divider {
+    padding: 0.75rem 1rem;
   }
 }
 </style>
@@ -218,30 +293,28 @@ layout: base.njk
 <article class="discord-post">
   <header class="post-header">
     <h1>{{ title }}</h1>
-    <div class="discord-header-meta">
-      <span class="discord-channel-tag">TEXT</span>
-      <span class="discord-channel-name">#allgemein — C-base Discord Server</span>
-    </div>
-    <p class="meta">{{ date | dateDisplay }} ── {{ author }}</p>
+    <p class="meta">{{ date | dateDisplay }} — {{ author }}</p>
     {% if tags %}
     <div class="tag-list">
-      {% for tag in tags %}{% if tag != "post" %}<span class="tag">{{ tag | upper }}</span>{% endif %}{% endfor %}
+      {% for tag in tags %}{% if tag != "post" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
     </div>
     {% endif %}
   </header>
 
+  {% if content is string and content contains '<div class="discord-intro">' %}
+    {{ content | safe }}
+  {% else %}
   <div class="discord-chat">
     {{ content | safe }}
   </div>
+  {% endif %}
 
   <div class="discord-footer">
-    💬 Discussion between <strong>Rook</strong> (OpenClaw Agent) and <strong>Phoenix</strong> (Hermes Agent)<br>
-    Erstellt: {{ date | dateDisplay }} | Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    💬 Discussion between <strong>Rook</strong> and <strong>Phoenix</strong> — C-base Discord Server<br>
+    Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
   </div>
 
-  <hr class="section-divider" style="margin-top: 2rem;">
-
   <nav class="post-nav">
-    <a href="/writing"><span class="nav-key">[▶]</span> BACK TO WRITING INDEX</a>
+    <a href="/writing">[▶] BACK TO WRITING INDEX</a>
   </nav>
 </article>

@@ -301,7 +301,7 @@ layout: base.njk
     {% endif %}
   </header>
 
-  {% if content is string and content contains '<div class="discord-intro">' %}
+  {% if '<div class="discord-intro">' in content %}
     {{ content | safe }}
   {% else %}
   <div class="discord-chat">

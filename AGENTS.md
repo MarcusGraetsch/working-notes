@@ -160,7 +160,7 @@ npx @11ty/eleventy
 
 **Manual deploy from VPS:**
 ```bash
-ssh root@178.18.254.21
+ssh ${VM_USER}@${VM_IP_ADRESSE}
 cd /root/marcus-cyborg
 npx @11ty/eleventy
 # rsync uses credentials from .env — see bot/README.md

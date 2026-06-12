@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/graph");
+  eleventyConfig.addPassthroughCopy("src/voice");
 
   // Render a companion .process.md file if it exists
   const md = markdownIt({ html: true });

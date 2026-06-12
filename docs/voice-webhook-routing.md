@@ -9,15 +9,21 @@ This site keeps the public `www.working-notes.org` hostname, but the path
 
 ## Routing Model
 
-- `www.working-notes.org/voice/webhook` is not a static Eleventy page.
-- The path is handled at the edge / ingress layer and forwarded to the live
-  OpenClaw webhook service.
+- `www.working-notes.org/voice/webhook` is handled by a small PHP relay in the
+  website deployment.
+- The relay forwards requests to the live OpenClaw webhook service on the VPS.
 - The rest of the website continues to come from the static site deployment.
 
 ## Operator Note
 
-Do not add a normal content page at `src/voice/webhook` for this path.
-The webhook must remain a server-side endpoint so Telnyx can POST call events.
+Do not add a normal content page at `src/voice/webhook`.
+The endpoint must remain server-side so Telnyx can POST call events.
+
+## Backend
+
+- public backend host: `voice.working-notes.org`
+- backend target: OpenClaw voice-call webhook on the VPS
+- website relay path: `www.working-notes.org/voice/webhook`
 
 ## Validation Target
 

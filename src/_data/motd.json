@@ -27,6 +27,16 @@
     "connection": "Connected to port 2600 \u2500\u2500 BBS mode active",
     "command": "cat openclaw-essay.txt",
     "file": "motd/v0.3.njk",
+    "current": false
+  },
+  {
+    "id": "v0.4",
+    "version": "0.4",
+    "date": "2026-07-01",
+    "title": "The Pirate Flag",
+    "connection": "Connected to port 2600 \u2500\u2500 BBS mode active",
+    "command": "make fahne.pdf",
+    "file": "motd/v0.4.njk",
     "current": true
   }
 ]

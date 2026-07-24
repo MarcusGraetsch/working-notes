@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/graph");
   eleventyConfig.addPassthroughCopy("src/voice");
+  eleventyConfig.addPassthroughCopy("src/ostsee-tour-embed");
 
   // Render a companion .process.md file if it exists
   const md = markdownIt({ html: true });

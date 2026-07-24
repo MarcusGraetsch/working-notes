@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ostsee-Tour 2026 — Mecklenburg, Rügen, Usedom, Polen, Brandenburg</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-title">
+      <h1>🗺️ Ostsee-Tour 2026</h1>
+      <p>Campingplätze &amp; Sehenswürdigkeiten — 5 Regionen, 1 Rundreise</p>
+    </div>
+    <div class="header-meta">
+      <span class="badge">🚐 Hymer H-Kennzeichen</span>
+      <span class="badge">📅 14 Tage</span>
+      <span class="badge">💰 ~1.715 €</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <!-- REGION FILTER -->
+    <section class="filter-section">
+      <h2>Region</h2>
+      <div class="region-buttons">
+        <button class="region-btn active" data-region="all">Alle</button>
+        <button class="region-btn" data-region="seenplatte" style="--c:#2e8b57">Seenplatte</button>
+        <button class="region-btn" data-region="ostsee-mv" style="--c:#1e6f9c">Rügen/Usedom</button>
+        <button class="region-btn" data-region="polnische-ostsee" style="--c:#dc143c">Polen</button>
+        <button class="region-btn" data-region="brandenburg" style="--c:#8b4513">Brandenburg</button>
+        <button class="region-btn" data-region="holstein" style="--c:#d2691e">Holstein</button>
+      </div>
+    </section>
+
+    <!-- TYPE FILTER -->
+    <section class="filter-section">
+      <h2>Typ</h2>
+      <div class="type-buttons">
+        <button class="type-btn active" data-type="all">Alle</button>
+        <button class="type-btn" data-type="camping">
+          <span class="icon">🏕️</span> Camping
+        </button>
+        <button class="type-btn" data-type="sehenswuerdigkeit">
+          <span class="icon">🏛️</span> Sight
+        </button>
+      </div>
+    </section>
+
+    <!-- LIST -->
+    <section class="list-section">
+      <div class="list-header">
+        <h2 id="list-title">Alle Orte</h2>
+        <span id="list-count" class="count">–</span>
+      </div>
+      <ul id="place-list" class="place-list"></ul>
+    </section>
+
+    <!-- PRACTICAL INFO -->
+    <section class="info-section">
+      <h2>📋 Praktisches</h2>
+      <details>
+        <summary>Polen: Maut, Diesel, Tanken</summary>
+        <div class="info-content">
+          <p><strong>🚗 Maut:</strong> Hymer 3,2 t unter 3,5 t → auf <em>Staatsstraßen (e-TOLL) keine Maut</em>. Nur auf <em>privaten Autobahnen</em> (z.B. A1 Amber One) mautpflichtig.</p>
+          <p><strong>⛽ Diesel:</strong> DE ~1,92 €/L · PL Świnoujście ~1,42–1,85 €/L. <em>In Polen voll tanken!</em></p>
+          <p><strong>🛒 Polenmarkt:</strong> Hohenwutzen (direkt an der Grenze, über 700 Stände, täglich). Auch Misdroy hat kleine Märkte.</p>
+          <p><strong>💳 Bezahlen:</strong> PLN in Polen. In Świnoujście akzeptieren viele Geschäfte auch €.</p>
+        </div>
+      </details>
+      <details>
+        <summary>📚 Lesetipps für "Zeit zum Lesen"</summary>
+        <div class="info-content">
+          <p><strong>Brigitte Reimann — "Franziska Linkerhand"</strong><br>DDR-Arbeiterin zwischen Pflicht und Freiheit. Passt perfekt zum Schwielowsee! <em>→ Brigitte-Reimann-Haus in Burg besuchen.</em></p>
+          <p><strong>Didier Eribon — "Rückkehr nach Reims"</strong><br>Klassenherkunft, soziale Mobilität, Scham. Passt thematisch zur Reise.</p>
+          <p><strong>Hans Fallada — "Kleiner Mann, was nun?"</strong><br>Berlin/MV-Realismus der Weimarer Republik.</p>
+          <p><strong>Christoph Hein — "Der Tangospieler"</strong><br>Mecklenburger Autor, DDR-Alltag.</p>
+          <p><strong>Theodor Fontane — "Effi Briest"</strong><br>Brandenburgische Adelswelt, Havellandschaft.</p>
+        </div>
+      </details>
+      <details>
+        <summary>🧰 Hymer-Oldtimer: Was mitnehmen</summary>
+        <div class="info-content">
+          <p><strong>Werkzeug & Ersatzteile:</strong> Zahnriemen-Ersatzset, Keilriemen, Lichtmaschine-Relais, Bremsschlauch-Set, Wasserpumpen-Dichtung, Glühlampen komplett, Sicherungen, Starthilfekabel</p>
+          <p><strong>2,75 m Höhe:</strong> Brückenhöhen in Polen i.d.R. kein Problem, aber <em>alte Grenzübergänge mit niedrigen Durchfahrten meiden</em> (z.B. some innerorts routes)</p>
+          <p><strong>ADAC:</strong> Euro-Schutzbrief für DE + EU. FFVE akzeptiert keine Privatpersonen → <strong>ADAC oder AvD</strong> abschließen.</p>
+          <p><strong>Gas:</strong> Camping-Gas (Propano) in DE überall erhältlich. In Polen günstiger.</p>
+        </div>
+      </details>
+      <details>
+        <summary>🚐 Routenvorschlag (14 Tage)</summary>
+        <div class="info-content">
+          <ol class="route-list">
+            <li><strong>Tag 1:</strong> Bremen → Plau am See (~270 km, ~3h) 🏕️ Camping Leisten/Malchow</li>
+            <li><strong>Tag 2:</strong> Müritz-Nationalpark, Müritzeum Waren 🏕️ Naturcamping Malchow</li>
+            <li><strong>Tag 3:</strong> Fahrt nach Ahrenshoop/Prerow (~130 km) 🏕️ Darß-Region</li>
+            <li><strong>Tag 4:</strong> Nationalpark Bodden, Darßer Ort, Prerow 🏛️ NATUREUM</li>
+            <li><strong>Tag 5:</strong> Rügen: Kreidefelsen, Königsstuhl 🏕️ Camping Prora</li>
+            <li><strong>Tag 6:</strong> Rügen: Kap Arkona, Binz, Sassnitz 🏕️ Campingpark Rügen</li>
+            <li><strong>Tag 7:</strong> Rügen → Usedom: Peenemünde, Bansin, Heringsdorf 🏕️ Ostsee-Camping Bansin</li>
+            <li><strong>Tag 8:</strong> Kaiserbäder,promenade, Strand → Świnoujście 🏕️ Forest Camp Misdroy</li>
+            <li><strong>Tag 9:</strong> Misdroy: Pier, Oceanarium, Wolin-Nationalpark 🏕️ Camping Świnoujście</li>
+            <li><strong>Tag 10:</strong> Świnoujście Altstadt, Tanken, Grenzübergang → Hohenwutzen 🏕️ Camping Schwielowsee</li>
+            <li><strong>Tag 11:</strong> Schwielowsee, Werder Havel, Brigitte-Reimann-Haus 🏛️ Potsdam-Schlösser</li>
+            <li><strong>Tag 12:</strong> Bad Saarow, Scharmützelsee 🏕️ Camping Schwarzhorn</li>
+            <li><strong>Tag 13:</strong> Fahrt nach Plön (~350 km) 🏕️ Naturcamping Spitzenort/Prinzenholz</li>
+            <li><strong>Tag 14:</strong> Plöner Schloss, 5-Seen-Fahrt, Grömitz Ostsee → Bremen (~260 km)</li>
+          </ol>
+          <p class="route-total"><strong>Gesamtstrecke:</strong> ~1.800 km · <strong>Sprit:</strong> ~180 L × 1,92 = ~345 € · <strong>Camping:</strong> ~400–600 €</p>
+        </div>
+      </details>
+      <details>
+        <summary>📱 Nützliche Apps</summary>
+        <div class="info-content">
+          <p><strong>Park4Night</strong> — Camping & Stellplätze weltweit</p>
+          <p><strong>piNCAMP (ADAC)</strong> — Campingplatz-Buchung + Bewertungen</p>
+          <p><strong>Stellplatz.info</strong> — Wohnmobilstellplätze in D/AT/CH</p>
+          <p><strong>Komoot</strong> — Rad- und Wandertouren</p>
+          <p><strong>ADAC Camping & Stellplätze</strong> — Die offizielle ADAC-App</p>
+          <p><strong>ViaMichelin / Google Maps</strong> — Navigation mit Höhenwarnung für 2,75 m</p>
+        </div>
+      </details>
+    </section>
+  </aside>
+
+  <!-- MAP -->
+  <div id="map-container">
+    <div id="map"></div>
+    <div id="route-legend" class="legend-panel">
+      <h3>Legende</h3>
+      <ul class="legend-list">
+        <li><span class="dot camping"></span> Camping / Stellplatz</li>
+        <li><span class="dot sight"></span> Sehenswürdigkeit</li>
+        <li><span class="dot route"></span> Routenvorschlag</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

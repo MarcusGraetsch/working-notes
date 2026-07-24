@@ -37,6 +37,9 @@ window.OSTSEE_DATA = {
     { id: "camping-schwarzhorn",       name: "Campingplatz Schwarzhorn",     region: "brandenburg", lat: 52.2867, lng: 14.0433, beschreibung: "Am Scharmützelsee/Storkower See, ganzjährig. Hunde erlaubt.",                          url: "https://www.camping.info/de/campingplatz/campingplatz-schwarzhorn", eigenschaften: ["direkt am See", "Ganzjährig", "Hund"] },
     { id: "womo-bad-saarow",           name: "Wohnmobilstellplatz Bad Saarow",region: "brandenburg", lat: 52.2883, lng: 14.0472, beschreibung: "~30 Stellplätze, teils Seeblick, idyllische Lage am Storkower See.",                     url: "https://www.bad-saarow.de/wohnmobilstellplaetze",  eigenschaften: ["direkt am See", "Seeblick"] },
 
+    // === Festival-Stopps ===
+    { id: "herzberg-festival", name: "Herzberg Festival",            region: "festival",    typ: "historie", lat: 50.7456, lng: 9.5108, beschreibung: "Europas ältestes Hippie-Festival (seit 1968). 30.07.02.08.2026, Breitenbach am Herzberg, Vogelsbergkreis Hessen. Live-Musik, Workshops, Öko-Vibe. Festival-Camping direkt am Gelände.", highlight: "Europas ältestes Hippie-Festival", url: "https://www.herzberg-festival.de/" },
+
     // === Holsteinische Schweiz ===
     { id: "campingpark-augstfelde",   name: "Campingpark Augstfelde (Plön)",  region: "holstein", lat: 54.1583, lng: 10.4183, beschreibung: "Direkt an der Plöner Seenplatte, traumhaft für Familien und Hundebesitzer.",              url: "https://www.augstfelde.de/",                         eigenschaften: ["direkt am See", "Familien", "Hund"] },
     { id: "naturcamping-prinzenholz",  name: "Naturcamping Prinzenholz (Plön)",region: "holstein", lat: 54.1517, lng: 10.4778, beschreibung: "Naturcamping am Plöner See, viel Ruhe.",                                                          url: "https://camping-schleswig-holstein.de/...",         eigenschaften: ["direkt am See", "Natur", "Ruhig"] },
@@ -78,6 +81,9 @@ window.OSTSEE_DATA = {
     { id: "bad-saarow",            name: "Bad Saarow",                   region: "brandenburg", typ: "stadt",   lat: 52.2872, lng: 14.0331, beschreibung: "Kurort am Scharmützelsee. Schlosspark, Therme, traditionsreiche Hotels.",                       highlight: "Scharmützelsee-Ostufer", url: "https://www.bad-saarow.de/" },
     { id: "brigitte-reimann",      name: "Brigitte-Reimann-Haus (Burg)", region: "brandenburg", typ: "museum",   lat: 52.4083, lng: 12.9528, beschreibung: "Gedenkstätte für die DDR-Schriftstellerin Brigitte Reimann (1933-73). Verfasserin von 'Franziska Linkerhand'.", highlight: "Franziska Linkerhand", url: "https://www.brigitte-reimann.de/" },
     { id: "potsdam-schloesser",    name: "Potsdam Schlösser (UNESCO)",   region: "brandenburg", typ: "historie", lat: 52.4036, lng: 13.0385, beschreibung: "UNESCO-Weltkulturerbe. Sanssouci, Neues Palais, Cecilienhof, Park Babelsberg – von Werder in 20 Min.", highlight: "UNESCO-Weltkulturerbe", url: "https://www.spsg.de/" },
+
+    // === Festival-Stopps ===
+    { id: "herzberg-festival", name: "Herzberg Festival",            region: "festival",    typ: "historie", lat: 50.7456, lng: 9.5108, beschreibung: "Europas ältestes Hippie-Festival (seit 1968). 30.07.02.08.2026, Breitenbach am Herzberg, Vogelsbergkreis Hessen. Live-Musik, Workshops, Öko-Vibe. Festival-Camping direkt am Gelände.", highlight: "Europas ältestes Hippie-Festival", url: "https://www.herzberg-festival.de/" },
 
     // === Holsteinische Schweiz ===
     { id: "ploener-schloss",       name: "Plöner Schloss",               region: "holstein", typ: "historie", lat: 54.1606, lng: 10.4211, beschreibung: "Größtes Schloss Schleswig-Holsteins. Barock, Förderverein, Museum.",                           highlight: "Größtes Schloss SH", url: "https://www.schloss-ploen.de/" },

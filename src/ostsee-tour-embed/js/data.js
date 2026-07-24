@@ -90,22 +90,24 @@ window.OSTSEE_DATA = {
 
   // Routenvorschlag als GeoJSON-LineString
   route: {
-    name: "Routenvorschlag 14 Tage",
+    name: "Routenvorschlag 14-17 Tage",
     farbe: "#27ae60",
     punkte: [
-      [53.4583, 12.2625],  // Tag 1: Plau am See
-      [53.5167, 12.6833],  // Tag 2: Waren/Müritz
-      [54.3833, 12.4167],  // Tag 3-4: Ahrenshoop/Prerow
-      [54.5733, 13.6622],  // Tag 5: Kreidefelsen
-      [54.4053, 13.6139],  // Tag 6: Binz
-      [53.9742, 14.1417],  // Tag 7: Bansin/Usedom
-      [53.9586, 14.1692],  // Tag 8: Heringsdorf
-      [53.91,   14.2472],  // Tag 8-9: Świnoujście
-      [53.9289, 14.45],    // Tag 9: Misdroy
-      [52.3553, 12.9517],  // Tag 10-11: Schwielowsee
-      [52.2872, 14.0331],  // Tag 12: Bad Saarow
-      [54.16,   10.45  ],  // Tag 13: Plön
-      [54.1483, 10.975]    // Tag 14: Grömitz
+      [50.7456, 9.5108],   // Tag 1: Herzberg am Herzberg (Anreise ~280 km)
+      [50.7456, 9.5108],   // Tag 2-3: Herzberg Festival (30.07.-02.08.)
+      [53.4583, 12.2625],  // Tag 4-5: Plau am See (Transfer ~430 km)
+      [53.5167, 12.6833],  // Tag 6: Waren/Müritz
+      [54.3833, 12.4167],  // Tag 7-8: Ahrenshoop/Prerow
+      [54.5733, 13.6622],  // Tag 9: Kreidefelsen
+      [54.4053, 13.6139],  // Tag 10: Binz
+      [53.9742, 14.1417],  // Tag 11: Bansin/Usedom
+      [53.9586, 14.1692],  // Tag 12: Heringsdorf
+      [53.91,   14.2472],  // Tag 12-13: Świnoujście
+      [53.9289, 14.45],    // Tag 13: Misdroy
+      [52.3553, 12.9517],  // Tag 14-15: Schwielowsee
+      [52.2872, 14.0331],  // Tag 15: Bad Saarow
+      [54.16,   10.45  ],  // Tag 16: Plön
+      [54.1483, 10.975]    // Tag 17: Grömitz
     ]
   }
 };

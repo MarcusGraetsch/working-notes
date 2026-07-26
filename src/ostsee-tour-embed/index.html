@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ostsee-Tour 2026 — Mecklenburg, Rügen, Usedom, Polen, Brandenburg</title>
+  <title>Ostsee-Tour 2026 — Bremen, Herzberg, Ostsee, Berlin</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
@@ -15,11 +15,11 @@
   <div class="header-inner">
     <div class="header-title">
       <h1>🗺️ Ostsee-Tour 2026</h1>
-      <p>Campingplätze &amp; Sehenswürdigkeiten — 5 Regionen, 1 Rundreise</p>
+      <p>Camping, Badestellen, Festivals &amp; Sehenswürdigkeiten — Bremen bis Berlin</p>
     </div>
     <div class="header-meta">
       <span class="badge">🚐 Hymer H-Kennzeichen</span>
-      <span class="badge">📅 14 Tage</span>
+      <span class="badge">📅 27 Tage</span>
       <span class="badge">💰 ~1.715 €</span>
     </div>
   </div>
@@ -33,11 +33,13 @@
       <h2>Region</h2>
       <div class="region-buttons">
         <button class="region-btn active" data-region="all">Alle</button>
+        <button class="region-btn" data-region="festival" style="--c:#d946ef">Herzberg</button>
+        <button class="region-btn" data-region="thueringen" style="--c:#b91c1c">Thüringen</button>
+        <button class="region-btn" data-region="sachsen-anhalt" style="--c:#8b5cf6">Sachsen</button>
         <button class="region-btn" data-region="seenplatte" style="--c:#2e8b57">Seenplatte</button>
         <button class="region-btn" data-region="ostsee-mv" style="--c:#1e6f9c">Rügen/Usedom</button>
         <button class="region-btn" data-region="polnische-ostsee" style="--c:#dc143c">Polen</button>
         <button class="region-btn" data-region="brandenburg" style="--c:#8b4513">Brandenburg</button>
-        <button class="region-btn" data-region="holstein" style="--c:#d2691e">Holstein</button>
       </div>
     </section>
 
@@ -49,8 +51,17 @@
         <button class="type-btn" data-type="camping">
           <span class="icon">🏕️</span> Camping
         </button>
+        <button class="type-btn" data-type="stellplatz">
+          <span class="icon">🚐</span> Stellplatz
+        </button>
+        <button class="type-btn" data-type="badespot">
+          <span class="icon">🏊</span> Baden
+        </button>
         <button class="type-btn" data-type="sehenswuerdigkeit">
           <span class="icon">🏛️</span> Sight
+        </button>
+        <button class="type-btn" data-type="festival">
+          <span class="icon">🎵</span> Festival
         </button>
       </div>
     </section>
@@ -96,25 +107,22 @@
         </div>
       </details>
       <details>
-        <summary>🚐 Routenvorschlag (14 Tage)</summary>
+        <summary>🚐 Route (27 Tage)</summary>
         <div class="info-content">
           <ol class="route-list">
-            <li><strong>Tag 1:</strong> Bremen → Plau am See (~270 km, ~3h) 🏕️ Camping Leisten/Malchow</li>
-            <li><strong>Tag 2:</strong> Müritz-Nationalpark, Müritzeum Waren 🏕️ Naturcamping Malchow</li>
-            <li><strong>Tag 3:</strong> Fahrt nach Ahrenshoop/Prerow (~130 km) 🏕️ Darß-Region</li>
-            <li><strong>Tag 4:</strong> Nationalpark Bodden, Darßer Ort, Prerow 🏛️ NATUREUM</li>
-            <li><strong>Tag 5:</strong> Rügen: Kreidefelsen, Königsstuhl 🏕️ Camping Prora</li>
-            <li><strong>Tag 6:</strong> Rügen: Kap Arkona, Binz, Sassnitz 🏕️ Campingpark Rügen</li>
-            <li><strong>Tag 7:</strong> Rügen → Usedom: Peenemünde, Bansin, Heringsdorf 🏕️ Ostsee-Camping Bansin</li>
-            <li><strong>Tag 8:</strong> Kaiserbäder,promenade, Strand → Świnoujście 🏕️ Forest Camp Misdroy</li>
-            <li><strong>Tag 9:</strong> Misdroy: Pier, Oceanarium, Wolin-Nationalpark 🏕️ Camping Świnoujście</li>
-            <li><strong>Tag 10:</strong> Świnoujście Altstadt, Tanken, Grenzübergang → Hohenwutzen 🏕️ Camping Schwielowsee</li>
-            <li><strong>Tag 11:</strong> Schwielowsee, Werder Havel, Brigitte-Reimann-Haus 🏛️ Potsdam-Schlösser</li>
-            <li><strong>Tag 12:</strong> Bad Saarow, Scharmützelsee 🏕️ Camping Schwarzhorn</li>
-            <li><strong>Tag 13:</strong> Fahrt nach Plön (~350 km) 🏕️ Naturcamping Spitzenort/Prinzenholz</li>
-            <li><strong>Tag 14:</strong> Plöner Schloss, 5-Seen-Fahrt, Grömitz Ostsee → Bremen (~260 km)</li>
+            <li><strong>28.07.:</strong> Bremen → Bad Hersfeld → Herzberg</li>
+            <li><strong>29.07.-02.08.:</strong> Herzberg Festival</li>
+            <li><strong>03.08.:</strong> Wartburg → Erfurt → Jena</li>
+            <li><strong>04.08.:</strong> Bleilochtalsperre → Leipzig → Torgau</li>
+            <li><strong>05.08.:</strong> Torgau → Dessau → Wörlitz → Brandenburg/Havel</li>
+            <li><strong>06.08.:</strong> Plau am See → Ahrenshoop → Prerow</li>
+            <li><strong>07.-10.08.:</strong> Stralsund → Rügen / Nonnevitz</li>
+            <li><strong>11.-12.08.:</strong> Prora → Peenemünde → Świnoujście / Misdroy</li>
+            <li><strong>13.-21.08.:</strong> Kaiserbäder → Zempin und Usedom</li>
+            <li><strong>22.08.:</strong> Usedom → Werbellinsee</li>
+            <li><strong>23.08.:</strong> Werbellinsee → Berlin</li>
           </ol>
-          <p class="route-total"><strong>Gesamtstrecke:</strong> ~1.800 km · <strong>Sprit:</strong> ~180 L × 1,92 = ~345 € · <strong>Camping:</strong> ~400–600 €</p>
+          <p class="route-total"><strong>Zeitraum:</strong> 28.07.-23.08.2026 · <strong>Start:</strong> Bremen · <strong>Ziel:</strong> Berlin</p>
         </div>
       </details>
       <details>
@@ -147,8 +155,8 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+<script src="js/data.js?v=2026-07-25"></script>
+<script src="js/app.js?v=2026-07-25"></script>
 
 </body>
 </html>

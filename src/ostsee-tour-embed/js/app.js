@@ -30,12 +30,15 @@
 
   const TYP_COLORS = {
     camping:        '#e67e22',
-    wohnmobil:      '#d35400',
+    stellplatz:     '#d35400',
+    badespot:       '#16a085',
+    festival:       '#d946ef',
     natur:          '#27ae60',
     museum:         '#8e44ad',
     stadt:          '#f39c12',
     historie:       '#c0392b',
-   sehenswuerdigkeit: '#3498db'
+    kultur:         '#8e44ad',
+    sehenswuerdigkeit: '#3498db'
   };
 
   function getMarkerColor(typ) {
@@ -43,53 +46,41 @@
     return TYP_COLORS[typ] || TYP_COLORS.stadt;
   }
 
-  // ===== CAMPING MARKERS (orange) =====
-  DATA.campingplaetze.forEach(p => {
-    const color = '#e67e22';
-    const icon = createIcon(color);
+  const TYPE_CONFIG = [
+    { key: 'campingplaetze',       type: 'camping',            icon: '🏕️', label: 'Camping' },
+    { key: 'stellplaetze',         type: 'stellplatz',          icon: '🚐', label: 'Stellplatz' },
+    { key: 'badespots',            type: 'badespot',            icon: '🏊', label: 'Badespot' },
+    { key: 'sehenswuerdigkeiten',  type: 'sehenswuerdigkeit',  icon: '🏛️', label: 'Sight' },
+    { key: 'festivals',            type: 'festival',            icon: '🎵', label: 'Festival' }
+  ];
 
-    const eigStr = (p.eigenschaften || []).join(' · ');
+  function addMarker(item, config) {
+    const subtype = config.type === 'sehenswuerdigkeit' ? item.typ : config.type;
+    const color = getMarkerColor(subtype);
+    const region = DATA.regionen.find(r => r.id === item.region);
+    const properties = (item.eigenschaften || []).join(' · ');
     const popup = `
-      <h3>🏕️ ${p.name}</h3>
-      <span class="popup-badge camping">Camping</span>
-      <span class="popup-badge" style="background:#fdebd0;color:#c0392b">${DATA.regionen.find(r=>r.id===p.region)?.name || p.region}</span>
-      ${p.beschreibung ? `<p>${p.beschreibung}</p>` : ''}
-      ${eigStr ? `<p style="font-size:.72rem;color:#666;margin-top:4px">${eigStr}</p>` : ''}
-      ${p.url ? `<a class="popup-url" href="${p.url}" target="_blank" rel="noopener">↗ Webseite</a>` : ''}
+      <h3>${config.icon} ${item.name}</h3>
+      <span class="popup-badge ${subtype}">${config.type === 'sehenswuerdigkeit' ? typLabel(item.typ) : config.label}</span>
+      <span class="popup-badge region">${region?.name || item.region}</span>
+      ${item.highlight ? `<div class="popup-highlight">★ ${item.highlight}</div>` : ''}
+      ${item.beschreibung ? `<p>${item.beschreibung}</p>` : ''}
+      ${properties ? `<p class="popup-properties">${properties}</p>` : ''}
+      ${item.url ? `<a class="popup-url" href="${item.url}" target="_blank" rel="noopener">↗ Webseite</a>` : ''}
     `;
 
-    const m = L.marker([p.lat, p.lng], { icon })
+    const marker = L.marker([item.lat, item.lng], { icon: createIcon(color) })
       .bindPopup(popup, { maxWidth: 280 })
-      .bindTooltip(p.name, { direction: 'top', offset: [0, -20] });
+      .bindTooltip(item.name, { direction: 'top', offset: [0, -20] });
 
-    m.featureId = p.id;
-    m.featureType = 'camping';
-    m.featureRegion = p.region;
-    markers.addLayer(m);
-  });
+    marker.featureId = item.id;
+    marker.featureType = config.type;
+    marker.featureRegion = item.region;
+    markers.addLayer(marker);
+  }
 
-  // ===== SIGHT MARKERS (blue) =====
-  DATA.sehenswuerdigkeiten.forEach(s => {
-    const color = getMarkerColor(s.typ);
-    const icon = createIcon(color);
-
-    const popup = `
-      <h3>🏛️ ${s.name}</h3>
-      <span class="popup-badge ${s.typ}">${typLabel(s.typ)}</span>
-      <span class="popup-badge" style="background:#fdebd0;color:#c0392b">${DATA.regionen.find(r=>r.id===s.region)?.name || s.region}</span>
-      ${s.highlight ? `<div class="popup-highlight">★ ${s.highlight}</div>` : ''}
-      ${s.beschreibung ? `<p>${s.beschreibung}</p>` : ''}
-      ${s.url ? `<a class="popup-url" href="${s.url}" target="_blank" rel="noopener">↗ Webseite</a>` : ''}
-    `;
-
-    const m = L.marker([s.lat, s.lng], { icon })
-      .bindPopup(popup, { maxWidth: 280 })
-      .bindTooltip(s.name, { direction: 'top', offset: [0, -20] });
-
-    m.featureId = s.id;
-    m.featureType = 'sehenswuerdigkeit';
-    m.featureRegion = s.region;
-    markers.addLayer(m);
+  TYPE_CONFIG.forEach(config => {
+    (DATA[config.key] || []).forEach(item => addMarker(item, config));
   });
 
   map.addLayer(markers);
@@ -97,12 +88,21 @@
   // ===== ROUTE LINE =====
   const routeLine = L.polyline(DATA.route.punkte, {
     color:       DATA.route.farbe,
-    weight:      3,
-    opacity:     0.75,
+    weight:      4,
+    opacity:     0.85,
     dashArray:   '8,8',
     lineCap:     'round',
     lineJoin:    'round'
+  }).addTo(map);
+
+  // ===== ROUTE POPUP (Klick auf Linie = Etappen-Info) =====
+  routeLine.bindTooltip('🚐 Route 28.07.-23.08.2026 (Bremen → Berlin)', {
+    sticky: true,
+    direction: 'auto',
+    className: 'route-tooltip'
   });
+
+  map.fitBounds(routeLine.getBounds(), { padding: [24, 24] });
 
   // ===== ICON FACTORY =====
   function createIcon(color) {
@@ -126,6 +126,7 @@
       museum: 'Museum',
       stadt: 'Stadt',
       historie: 'Geschichte',
+      kultur: 'Kultur',
       camping: 'Camping'
     };
     return map[typ] || typ;
@@ -143,13 +144,6 @@
       if (rOk && tOk) { markers.showLayer(layer); count++; }
       else             { markers.hideLayer(layer); }
     });
-
-    // Route line
-    if (activeRegion === 'all' || activeRegion === 'brandenburg' || activeRegion === 'seenplatte' || activeRegion === 'holstein' || activeRegion === 'polnische-ostsee') {
-      if (!map.hasLayer(routeLine)) routeLine.addTo(map);
-    } else {
-      if (map.hasLayer(routeLine)) map.removeLayer(routeLine);
-    }
 
     updateList(count);
     updateTitle();
@@ -169,9 +163,9 @@
     const ul = document.getElementById('place-list');
     ul.innerHTML = '';
 
-    const camping   = DATA.campingplaetze.map(c => ({ ...c, _type: 'camping' }));
-    const sights    = DATA.sehenswuerdigkeiten.map(s => ({ ...s, _type: 'sehenswuerdigkeit' }));
-    const all       = [...camping, ...sights];
+    const all = TYPE_CONFIG.flatMap(config =>
+      (DATA[config.key] || []).map(item => ({ ...item, _type: config.type, _config: config }))
+    );
 
     const filtered = all.filter(item => {
       const rOk = (activeRegion === 'all' || item.region === activeRegion);
@@ -183,8 +177,9 @@
       const reg = DATA.regionen.find(r => r.id === item.region);
       const li  = document.createElement('li');
 
-      const color = item._type === 'camping' ? '#e67e22' : '#3498db';
-      const typeLabel = item._type === 'camping' ? 'Camping' : (typLabel(item.typ) || 'Sight');
+      const subtype = item._type === 'sehenswuerdigkeit' ? item.typ : item._type;
+      const color = getMarkerColor(subtype);
+      const typeLabel = item._type === 'sehenswuerdigkeit' ? typLabel(item.typ) : item._config.label;
 
       li.innerHTML = `
         <span class="dot ${item._type}" style="background:${color}"></span>
@@ -222,7 +217,7 @@
         const reg = DATA.regionen.find(r => r.id === activeRegion);
         if (reg) map.setView(reg.zentrum, reg.zoom || 10);
       } else {
-        map.setView([53.9, 13.0], 7);
+        map.fitBounds(routeLine.getBounds(), { padding: [24, 24] });
       }
 
       applyFilter();

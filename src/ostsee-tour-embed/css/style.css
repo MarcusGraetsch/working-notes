@@ -141,6 +141,7 @@ main {
 /* TYPE BUTTONS */
 .type-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
 }
 
@@ -227,6 +228,9 @@ main {
 }
 
 .place-list li .dot.camping { background: #e67e22; }
+.place-list li .dot.stellplatz { background: #d35400; }
+.place-list li .dot.badespot { background: #16a085; }
+.place-list li .dot.festival { background: #d946ef; }
 .place-list li .dot.sehenswuerdigkeit { background: #3498db; }
 
 .place-list li .place-info { flex: 1; }
@@ -408,11 +412,22 @@ details[open] summary::before { transform: rotate(90deg); }
 }
 
 .popup-badge.camping { background: #fdebd0; color: #c0392b; }
+.popup-badge.stellplatz { background: #fce4d6; color: #a04000; }
+.popup-badge.badespot { background: #d5f5e3; color: #117864; }
+.popup-badge.festival { background: #fae8ff; color: #a21caf; }
+.popup-badge.region { background: #e8f4f8; color: #1a6f9c; }
 .popup-badge.sehenswuerdigkeit { background: #d6eaf8; color: #1a6f9c; }
 .popup-badge.natur { background: #d5f5e3; color: #1e8449; }
 .popup-badge.museum { background: #f5eef8; color: #7d3c98; }
 .popup-badge.stadt { background: #fef9e7; color: #9a7d0a; }
 .popup-badge.historie { background: #fdedec; color: #922b21; }
+.popup-badge.kultur { background: #f5eef8; color: #7d3c98; }
+
+.popup-properties {
+  font-size: .72rem;
+  color: #666;
+  margin-top: 4px;
+}
 
 .popup-highlight {
   font-size: 0.75rem;

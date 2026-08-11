@@ -37,7 +37,7 @@ aktuellen Text-zu-Bild-Modellen war die Schrift nicht entzifferbar.
 Lösung: **HTML-Compositing** — die Bilder bleiben, der Text kommt als
 HTML-Overlay drüber. Pixelgenau lesbar, in jeder Sprache.
 
-[**→ Comic lesen (14 Seiten HTML)**](/img/spotify-pkce-flow/index.html)
+[**→ Comic lesen (14 Seiten HTML)**](/comic/spotify-pkce-flow/index.html)
 
 Navigation pro Seite (links/rechts) oder direkt die Index-Seite mit
 Thumbnails.

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wie Hermes mit Spotify spricht — Comic</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 32px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 32px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 12px;
+    border: 1px solid #334155;
+  }
+  .header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 12px;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+  }
+  .header .meta {
+    margin-top: 16px;
+    font-size: 11px;
+    color: #64748b;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .page-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .page-card:hover {
+    transform: translateY(-2px);
+    border-color: #22d3ee;
+  }
+  .page-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .page-card .info {
+    padding: 12px 16px;
+  }
+  .page-card .info .num {
+    font-size: 10px;
+    color: #22d3ee;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .page-card .info .title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #f8fafc;
+    margin-bottom: 4px;
+  }
+  .page-card .info .desc {
+    font-size: 10px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Wie Hermes mit Spotify spricht</h1>
+    <div class="subtitle">Ein OAuth-PKCE-Flow in 14 Bildern · Ligne-claire</div>
+    <div class="meta">Marcus Grätsch · August 2026 · Camping Zempin, Usedom</div>
+  </div>
+
+  <div class="grid">
+
+    <a href="page-1.html" class="page-card">
+      <img src="01-cover-das-raetsel.png" alt="Cover">
+      <div class="info">
+        <div class="num">SEITE 01</div>
+        <div class="title">Cover — Das Rätsel</div>
+        <div class="desc">Marcus auf dem Campingplatz, Leuchtturm in der Ferne</div>
+      </div>
+    </a>
+
+    <a href="page-2.html" class="page-card">
+      <img src="02-das-problem.png" alt="Das Problem">
+      <div class="info">
+        <div class="num">SEITE 02</div>
+        <div class="title">Das Problem</div>
+        <div class="desc">Tunnel blockiert, Brücke fehlt</div>
+      </div>
+    </a>
+
+    <a href="page-3.html" class="page-card">
+      <img src="03-die-idee-manuelle-bruecke.png" alt="Die Idee">
+      <div class="info">
+        <div class="num">SEITE 03</div>
+        <div class="title">Die Idee — Manuelle Brücke</div>
+        <div class="desc">Eureka: Marcus IST die Brücke</div>
+      </div>
+    </a>
+
+    <a href="page-4.html" class="page-card">
+      <img src="04-schritt1-pkce-paar.png" alt="PKCE-Paar">
+      <div class="info">
+        <div class="num">SEITE 04</div>
+        <div class="title">Schritt 1 — PKCE-Paar</div>
+        <div class="desc">Hermes generiert verifier + challenge</div>
+      </div>
+    </a>
+
+    <a href="page-5.html" class="page-card">
+      <img src="05-schritt2-authorize-link.png" alt="Authorize-Link">
+      <div class="info">
+        <div class="num">SEITE 05</div>
+        <div class="title">Schritt 2 — Authorize-Link</div>
+        <div class="desc">Die URL trifft ein, Marcus klickt</div>
+      </div>
+    </a>
+
+    <a href="page-6.html" class="page-card">
+      <img src="06-schritt3-autorisierung.png" alt="Autorisierung">
+      <div class="info">
+        <div class="num">SEITE 06</div>
+        <div class="title">Schritt 3 — Autorisierung</div>
+        <div class="desc">Login bei Spotify</div>
+      </div>
+    </a>
+
+    <a href="page-7.html" class="page-card">
+      <img src="07-schritt4-code-kommt-zurueck.png" alt="Code kommt zurück">
+      <div class="info">
+        <div class="num">SEITE 07</div>
+        <div class="title">Schritt 4 — Code kommt zurück</div>
+        <div class="desc">Detektiv-Moment: Seite weg, Code da</div>
+      </div>
+    </a>
+
+    <a href="page-8.html" class="page-card">
+      <img src="08-schritt5-code-zurueckschicken.png" alt="Code zurückschicken">
+      <div class="info">
+        <div class="num">SEITE 08</div>
+        <div class="title">Schritt 5 — Code zurückschicken</div>
+        <div class="desc">Telegram als Transport</div>
+      </div>
+    </a>
+
+    <a href="page-9.html" class="page-card">
+      <img src="09-schritt6-token-exchange.png" alt="Token-Exchange">
+      <div class="info">
+        <div class="num">SEITE 09</div>
+        <div class="title">Schritt 6 — Token-Exchange</div>
+        <div class="desc">Code rein, Schlüssel raus</div>
+      </div>
+    </a>
+
+    <a href="page-10.html" class="page-card">
+      <img src="10-schritt7-token-speichern.png" alt="Token speichern">
+      <div class="info">
+        <div class="num">SEITE 10</div>
+        <div class="title">Schritt 7 — Token speichern</div>
+        <div class="desc">Tokens landen in auth.json</div>
+      </div>
+    </a>
+
+    <a href="page-11.html" class="page-card">
+      <img src="11-epilog1-moeglich.png" alt="Epilog 1">
+      <div class="info">
+        <div class="num">SEITE 11</div>
+        <div class="title">Epilog 1 — Was nun möglich ist</div>
+        <div class="desc">Hermes baut die Playlist</div>
+      </div>
+    </a>
+
+    <a href="page-12.html" class="page-card">
+      <img src="12-epilog2-auf-laptop.png" alt="Epilog 2">
+      <div class="info">
+        <div class="num">SEITE 12</div>
+        <div class="title">Epilog 2 — Auf dem Laptop</div>
+        <div class="desc">Marcus hört die Playlist am Strand</div>
+      </div>
+    </a>
+
+    <a href="page-13.html" class="page-card">
+      <img src="13-reflexion.png" alt="Reflexion">
+      <div class="info">
+        <div class="num">SEITE 13</div>
+        <div class="title">Reflexion</div>
+        <div class="desc">Mensch und Maschine zufrieden</div>
+      </div>
+    </a>
+
+    <a href="page-14.html" class="page-card">
+      <img src="14-outro.png" alt="Outro">
+      <div class="info">
+        <div class="num">SEITE 14</div>
+        <div class="title">Outro</div>
+        <div class="desc">Hermes winkt zum Abschied</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    Built with baoyu-comic + HTML compositing · 2026-08-11
+  </div>
+
+</div>
+</body>
+</html>

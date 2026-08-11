@@ -37,10 +37,28 @@ aktuellen Text-zu-Bild-Modellen war die Schrift nicht entzifferbar.
 Lösung: **HTML-Compositing** — die Bilder bleiben, der Text kommt als
 HTML-Overlay drüber. Pixelgenau lesbar, in jeder Sprache.
 
-[**→ Comic lesen (14 Seiten HTML)**](/comic/spotify-pkce-flow/index.html)
+**Direkt zum Comic:**
+
+- 📖 **[Comic-Index mit allen 14 Seiten (Grid-Übersicht)](https://working-notes.org/comic/spotify-pkce-flow/)**
+- 1️⃣ [Cover — Das Rätsel](https://working-notes.org/comic/spotify-pkce-flow/page-1/)
+- 2️⃣ [Das Problem](https://working-notes.org/comic/spotify-pkce-flow/page-2/)
+- 3️⃣ [Die Idee — Manuelle Brücke](https://working-notes.org/comic/spotify-pkce-flow/page-3/)
+- 4️⃣ [Schritt 1 — PKCE-Paar](https://working-notes.org/comic/spotify-pkce-flow/page-4/)
+- 5️⃣ [Schritt 2 — Authorize-Link](https://working-notes.org/comic/spotify-pkce-flow/page-5/)
+- 6️⃣ [Schritt 3 — Autorisierung](https://working-notes.org/comic/spotify-pkce-flow/page-6/)
+- 7️⃣ [Schritt 4 — Code kommt zurück](https://working-notes.org/comic/spotify-pkce-flow/page-7/)
+- 8️⃣ [Schritt 5 — Code zurückschicken](https://working-notes.org/comic/spotify-pkce-flow/page-8/)
+- 9️⃣ [Schritt 6 — Token-Exchange](https://working-notes.org/comic/spotify-pkce-flow/page-9/)
+- 🔟 [Schritt 7 — Token speichern](https://working-notes.org/comic/spotify-pkce-flow/page-10/)
+- 1️⃣1️⃣ [Epilog 1 — Was nun möglich ist](https://working-notes.org/comic/spotify-pkce-flow/page-11/)
+- 1️⃣2️⃣ [Epilog 2 — Auf dem Laptop](https://working-notes.org/comic/spotify-pkce-flow/page-12/)
+- 1️⃣3️⃣ [Reflexion](https://working-notes.org/comic/spotify-pkce-flow/page-13/)
+- 1️⃣4️⃣ [Outro](https://working-notes.org/comic/spotify-pkce-flow/page-14/)
 
 Navigation pro Seite (links/rechts) oder direkt die Index-Seite mit
 Thumbnails.
+
+![Cover — Wie Hermes mit Spotify spricht](/img/spotify-pkce-flow/01-cover-das-raetsel.png)
 
 ## Was eigentlich passiert ist (die Kurzfassung)
 
